@@ -1,0 +1,36 @@
+%Resumen -------------------------------------------------------------------------------------------
+\newgeometry{left=2.75cm,right=2.6cm,top=2.8cm,bottom=2.8cm}
+\renewcommand{\abstractname}{Resumen}
+\begin{abstract}
+La seguridad social, desde su origen hasta la actualidad, nace como medida de generación de equidad entre los individuos de una sociedad, cuyo fin es  proveer condiciones de vida digna. La problemática que actualmente enfrentan todos estos sistemas a nivel mundial está relacionada con el envejecimiento poblacional y su impacto financiero en las reservas de los fondos de pensiones. Es por ello que, se deben realizar acciones que permitan garantizar la sostenibilidad en el corto, mediano y largo plazo de los fondos administrados por los institutos de seguridad social, de manera especial, los relacionados con pensiones de jubilación.
+
+Ecuador no es una excepción a la crisis mundial, la cual, sumada al deterioro de su economía local, ha obligado a su fondo de pensiones a desinvertir de forma alarmante sus reserva para garantizar el pago de las obligaciones contraídas con sus actuales pensionistas, lo que ocasiona que el fondo tenga problemas de liquidez y sostenibilidad ya en el corto plazo. En este sentido, la primera parte del presente Trabajo de Fin de Máster se centra en la clasificación de las contribuciones realizadas por los actuales pensionistas a lo largo de su vida laboral. Para llevar a cabo este análisis, se implementarán diversos algoritmos de agrupación, tales como clúster jerárquico, K-Means y DBSCAN. A través de estos métodos, se busca organizar las aportaciones en grupos, permitiendo así identificar patrones y detectar cuáles de estas contribuciones son fraudulentas. 
+
+La segunda parte de este trabajo se enfoca en llevar a cabo un adecuado proceso KDD, incluyendo la selección de características mediante la aplicación de técnicas de reducción de dimensiones y el uso de métodos no supervisados. Posteriormente, se implementarán diversas técnicas de aprendizaje supervisado, entre las cuales destacan el algoritmo KNN, los árboles de decisión, los conjuntos de modelos, XGBoost y las redes neuronales, todas orientadas hacia tareas de clasificación. A través de estas metodologías, se desarrollarán varios modelos predictivos y se seleccionará aquel que brinde los resultados más óptimos, no solo en términos de su precisión para clasificar, sino también por su capacidad para detectar valores atípicos en los datos y evitar el sobreajuste. Además, se considerará el tiempo de ejecución de cada modelo y el costo computacional asociado a su implementación para la predicción del comportamiento de los sueldos de los afiliados actuales. 
+
+El proceso de entrenamiento de los modelos incluirá la técnica de validación cruzada para evaluar el rendimiento, junto con la optimización de hiperparámetros para mejorar la precisión y eficacia de las predicciones.
+
+\vspace{0.5cm}
+
+\keywords{aprendizaje no supervisado y supervisado, KNN, conjunto de modelos, XGBoost, redes neuronales, hiperparámetros}
+\end{abstract}
+
+\newpage
+\newgeometry{left=2.75cm,right=2.6cm,top=2.8cm,bottom=2.8cm}
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+Social security, from its inception to the present, was established as a means to promote equity among individuals within a society, with the aim of providing dignified living conditions. The primary challenge currently facing these systems worldwide is related to population aging and its financial impact on pension fund reserves. Therefore, actions must be taken to ensure the short-, medium-, and long-term sustainability of the funds managed by social security institutions, with particular attention to those related to retirement pensions.
+
+Ecuador is no exception to the global crisis. Combined with the deterioration of its local economy, this situation has forced its pension fund to liquidate its reserves at an alarming rate to meet obligations to current pensioners, resulting in immediate liquidity and sustainability issues. In this context, the first part of this Master’s Thesis focuses on classifying the contributions made by current pensioners throughout their working lives. To conduct this analysis, several clustering algorithms will be implemented, such as hierarchical clustering, K-Means, and DBSCAN. These methods aim to organize contributions into groups, allowing for the identification of patterns and the detection of potentially fraudulent contributions.
+
+The second part of this work is dedicated to carrying out a comprehensive KDD process, including feature selection through dimensionality reduction techniques and the application of unsupervised methods. Subsequently, various supervised learning techniques will be implemented, among which the KNN algorithm, decision trees, ensemble models, XGBoost, and neural networks are highlighted, all oriented toward classification tasks. Through these methodologies, several predictive models will be developed, selecting the one that yields optimal results not only in terms of classification accuracy but also in its ability to detect outliers in the data and prevent overfitting. Additionally, each model’s execution time and computational cost associated with implementation will be considered for predicting the salary trends of current affiliates.
+
+The model training process will include cross-validation to assess performance, along with hyperparameter optimization to enhance the accuracy and effectiveness of the predictions.
+
+\vspace{0.5cm}
+
+\keywords{Unsupervised and supervised learning, KNN, ensemble of models, XGBoost, neural networks, hyperparameters}
+\end{abstract}
+
+\restoregeometry
+\newpage

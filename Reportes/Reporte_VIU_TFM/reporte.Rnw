@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{report}
+
+\input{\Sexpr{REP_style}}
+
+% \SetWatermarkText{\Sexpr{REP_watermark}}
+\SetWatermarkText{}
+% \SetWatermarkScale{0.30}
+%\SetWatermarkColor[gray]{0.9}
+
+%Bibliografía
+\addbibresource{\Sexpr{REP_bib_ley}}
+
+%%%%%%-------------------+++++++++--INICIO DEL DOCUMENTO--+++++++++---------------------------%%%%%
+
+\begin{document}
+
+% Contenidos
+
+<<cap01, child='01_portada.Rnw'>>=
+@
+
+<<cap02, child='02_contenido.Rnw'>>=
+@
+ 
+<<cap03, child='03_resumen.Rnw'>>=
+@
+ 
+<<cap04, child='04_agradecimientos.Rnw'>>=
+@
+ 
+<<cap05, child='05_capitulo1.Rnw'>>=
+@
+ 
+<<cap06, child='06_capitulo2.Rnw'>>=
+@
+
+<<cap07, child='07_capitulo3.Rnw'>>=
+@
+
+<<cap08, child='08_capitulo4.Rnw'>>=
+@
+
+<<cap09, child='09_capitulo5.Rnw'>>=
+@
+
+\appendix
+<<cap010, child='10_anx_capitulo1.Rnw'>>=
+@
+
+
+%Bibliografia--------------------------------------------------------------------------------------
+\chapter*{Bibliografía}
+\printbibliography[heading = none, sorting=nyt]
+% \printbibliography[notcategory=legislation, heading=none, sorting=nyt]
+% 
+% \bigskip
+% \noindent
+% \textbf{Legislación}
+% \printbibliography[category=legislation, heading=none, sorting=none]]
+
+\end{document}

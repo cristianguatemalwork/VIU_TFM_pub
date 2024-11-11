@@ -1,0 +1,1653 @@
+\chapter{Códigos y conjuntos de datos utilizados}\label{cap:anexo1}
+
+\section{Repositorio en Github y aplicativo} \label{sec_anex:github}
+
+El repositorio en Github, denominado \textit{VIU\_TFM}, incluye varias carpetas organizadas por tipo de contenido. En la carpeta \textit{SQL} se encuentran los script .sql utilizados en la construcción de la dase de datos \textit{data\_afi}. La carpeta \textit{Python} alberga los scripts .ipynb que contiene los códigos empleados en todo el proceso KDD, así como la implementación de los algoritmos de clúster jerárquico, K-Means y DBSCAN. Además, se incluyen códigos para técnicas de aprendizaje supervisado, tales como KNN, árboles de decisión, conjuntos de modelos, XGBoost y redes neuronales. Por último, la carpeta \textit{R} contiene los script .R utilizados en la edición del presente proyecto en formato \texttt{\LaTeX}. El enlace de acceso al repositorio es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM}{clic aqui}.
+
+Para facilitar el acceso a un archivo específico en el repositorio, que contiene el detalle de un tema particular, se proporcionarán enlaces directos a dicho archivo.
+
+De manera complementaria se desarrolló un dashboard en Shiny\footnote{Es una librería de R que permite crear aplicaciones interactivas.} utilizando la interface con python. Esta aplicación presenta los principales resultados de los modelos de aprendizaje supervisado y no supervisado, permitiendo al lector interactuar con las diferentes fases de la implementación. El acceso al mismo es haciendo \href{https://zzi1p2-cristian-guatemal.shinyapps.io/aplicativo_viu_tfm_big_data_y_ciencia_de_datos/}{clic aquí}.
+
+\section{Fuentes de datos} \label{sec_anex:fuentes_datos}
+
+Dentro de todas las fuentes de información que dispone el Instituto Ecuatoriano de Seguridad Social, se consideran las bases de datos transaccionales que guardan la información de Historia Laboral y Prestacional. Adicionalmente, la información se complementa con los datos proporcionados por Registro Civil (entidad pública que guarda los datos personales de la población ecuatoriana).
+
+A continuación, se detalla el contenido en cada fuente de información:
+
+El componente de \textbf{Historia Laboral (HL)} contiene la información de la vida laboral del afiliado, que incluye características como su información personal, empresa donde trabaja o trabajó, su fecha de primera aportación, las salidas del sistema, reingresos, aportes, sueldos, transiciones entre seguros, etc. La HL se encuentra cargada dentro del esquema \textit{iess\_owner}, el cual tiene las siguientes tablas:
+
+\begin{itemize}
+
+\item KSPCOTEMPTIP.- Contiene la información del tipo de empleador\footnote{El empleador es la persona que contrata a personas para que realicen algún tipo de trabajo}.
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{6.2}{6}\selectfont
+\begin{longtable}[H]{|r|r|r|r|r|r|} 
+\caption{\headlinecolor{\underline{Información del empleador}}}
+\label{tab:info_KSPCOTEMPTIP}\\[-0.1cm]
+
+\toprule
+\rowcolor{naranja}
+\multicolumn{6}{|c|}{\textbf{INFORMACION DEL TIPO EMPLEADOR}} \\ \hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+\midrule
+\endfirsthead
+
+\toprule
+\rowcolor{naranja}
+\multicolumn{6}{|c|}{\textbf{INFORMACION DEL TIPO EMPLEADOR}} \\ \hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+\midrule
+\endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+  
+  1 & CODSUC & VARCHAR2(4 BYTE)    & No & & Código de la sucursal \\
+2 & RUCEMP & VARCHAR2(13 BYTE)   & No & & Ruc del empleador\\
+3 & CODTIPPLA & VARCHAR2(3 BYTE) & No & & Código del tipo de planilla \\
+4 & TIPPER & VARCHAR2(1 BYTE)    & No & & Código del período \\
+5 & ANIPER & NUMBER(4,0)         & No & & Año del período \\
+6 & MESPER & NUMBER(2,0)         & No & & Mes del período \\
+7 & SECPLA & NUMBER(20,0)        & No & & Secuencial de Planilla \\
+8 & CODTIPNOVHISLAB & VARCHAR2(3 BYTE)& No & & Código del Tipo de Novedad de Historia Laboral \\
+9 & NUMAFI & CHAR(10 BYTE)       & No & & Número de afiliación único del afiliado \\
+10 & NUMDIALAB & NUMBER(2,0)     & No & & Número de días laborados \\
+11 & VALSUE & NUMBER(12,2)       & No & & Valor del sueldo declarado \\
+12 & VALAPONOR & NUMBER(12,2)    & No &0& Valor del Aporte Normal\\
+24 & CODTIPEMP & VARCHAR2(3 BYTE)& Yes& &  \\
+25 & CODRELTRA & VARCHAR2(2 BYTE)& Yes& &  \\
+26 & VALAPOPAT & NUMBER(12,2)    & Yes& & Valor de aporte por empleador \\
+27 & VALAPOIND & NUMBER(12,2)    & Yes& & Valor de aporte por afiliado \\
+
+\end{longtable}
+\endgroup
+
+\item KSRECTPLADET.- Contiene la información del detalle de la planilla\footnote{Es un registro con el detalle del aporte del afiliado} generada
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{6.1}{6}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r}
+\caption{\headlinecolor{\underline{Información del detalle de la planilla}}}
+\label{tab:info_KSRECTPLADET} \\[-0.1cm]
+
+\toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE DETALLE DE PLANILLA}\\ \hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE DETALLE DE PLANILLA}\\ \hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+1 & CODSUC & VARCHAR2(4 BYTE)    & No & & Código de la sucursal \\
+2 & RUCEMP & VARCHAR2(13 BYTE)   & No & & Ruc del empleador\\
+3 & CODTIPPLA & VARCHAR2(3 BYTE) & No & & Código del tipo de planilla \\
+4 & TIPPER & VARCHAR2(1 BYTE)    & No & & Código del período \\
+5 & ANIPER & NUMBER(4,0)         & No & & Año del período \\
+6 & MESPER & NUMBER(2,0)         & No & & Mes del período \\
+7 & SECPLA & NUMBER(20,0)        & No & & Secuencial de Planilla \\
+8 & CODTIPNOVHISLAB & VARCHAR2(3 BYTE)& No & & Código del Tipo de Novedad de Historia Laboral \\
+9 & NUMAFI & CHAR(10 BYTE)       & No & & Número de afiliación único del afiliado \\
+10 & NUMDIALAB & NUMBER(2,0)     & No & & Número de días laborados \\
+11 & VALSUE & NUMBER(12,2)       & No & & Valor del sueldo declarado \\
+12 & VALAPONOR & NUMBER(12,2)    & No &0& Valor del Aporte Normal\\
+24 & CODTIPEMP & VARCHAR2(3 BYTE)& Yes& &  \\
+25 & CODRELTRA & VARCHAR2(2 BYTE)& Yes& &  \\
+26 & VALAPOPAT & NUMBER(12,2)    & Yes& & Valor de aporte por empleador \\
+27 & VALAPOIND & NUMBER(12,2)    & Yes& & Valor de aporte por afiliado \\
+
+
+
+\end{longtable}
+\endgroup
+
+\item KSRECTPLANILLAS.- Contiene la información de la planilla en general
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{6.1}{6}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r }
+\caption{\headlinecolor{\underline{Información de la planilla}}}
+\label{tab:info_KSRECTPLANILLAS} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE PLANILLA}\\\hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE PLANILLA}\\\hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+
+3 & CODTIPPLA & VARCHAR2(3 BYTE) & No & & Código del tipo de planilla \\
+4 & CODSUC & VARCHAR2(4 BYTE)    & No & & Código de la sucursal\\
+5 & RUCEMP & VARCHAR2(13 BYTE)   & No & & Ruc del empleador \\
+6 & TIPPER & VARCHAR2(1 BYTE)    & No & & Código del período \\
+7 & ANIPER & NUMBER(4,0)         & No & & Anio del período \\
+8 & MESPER & NUMBER(2,0)         & No & & Mes del período \\
+9 & SECPLA & NUMBER(20,0)        & No & & Secuencial de Planilla\\
+10 & NUMDETPLA & NUMBER(6,0)     & No & & Numero de Detalles de la planilla \\
+14 & VALNORPLA & NUMBER(12,2)    & No &0& Valor Normal de la Planilla \\
+15 & VALADIPLA & NUMBER(12,2)    & No &0& Valor Adicional de la Planilla \\
+
+
+\end{longtable}
+\endgroup
+
+\item KSPCOTREGCIV.- Contiene la información personal de los ciudadanos ecuatorianos
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+{\fontsize{5.1}{6}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r }
+\caption{\headlinecolor{\underline{Información de Registro Civil}}}
+\label{tab:info_KSPCOTREGCIV} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE REGISTRO CIVIL}\\\hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE REGISTRO CIVIL}\\\hline
+COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+  1 & CEDIDEUSU & CHAR(10 BYTE)  & No &  & Número de cedula de la persona \\
+  2 & NOMPER & VARCHAR2(64 BYTE) & No &  & Nombres de la persona \\
+  3 & GENPER & CHAR(1 BYTE)      & No &  & Género de la persona: 1 Masculino, 2 Femenino \\
+  4 & FECNACPER & DATE           & No &  & Fecha de nacimiento de la persona \\
+  5 & NACPER & VARCHAR2(3 BYTE)  & Yes &  & Código de la nacionalidad \\
+  6 & ESTCIVPER & CHAR(1 BYTE)   & Yes &  & Código de estado civil: 1 Soltero, 2 Casado, 3 Divorciado, 4 Viudo, 5 Unión de hecho \\
+  7 & FECDEFPER & DATE           & Yes &  & Fecha de defunción de la persona \\
+  8 & CONPER & VARCHAR2(64 BYTE) & Yes &  & Cónyuge de la persona \\
+  9 & PROPER & VARCHAR2(8 BYTE)  & Yes &  & Profesión de la persona \\
+  10 & ORIDAT & CHAR(1 BYTE)     & Yes &  & Indicador Origen del dato ``I`` Interno, ``E`` externo \\
+  11 & ESTACT & CHAR(1 BYTE)     & Yes &  &  \\
+  12    & FECCAR & DATE  & Yes   &       & Fecha de carga \\
+  13    & ESTMIG & VARCHAR2(1 BYTE) & Yes   &       &  \\
+  14    & NOVEDAD & VARCHAR2(1 BYTE) & Yes   &       &  \\
+  15 & FECMATPER & DATE & Yes &  & Fecha de matrimonio de la persona \\
+  16    & CONCIUPER & VARCHAR2(2 BYTE) & Yes   &       &  \\
+  17    & APEMATAFI & VARCHAR2(32 BYTE) & Yes   &       & Apellido materno del afiliado \\
+  18    & APEPATAFI & VARCHAR2(32 BYTE) & Yes   &       & Apellido paterno del afiliado \\
+  19    & NOMAFI & VARCHAR2(80 BYTE) & Yes   &       & Apellido y nombre compuesto del afiliado. \\
+
+
+\end{longtable}
+}
+\endgroup
+\end{itemize}
+
+El componente \textbf{Prestacional} contiene de manera general la información del pensionista, incluyendo campos como su información personal, monto de su pensión, incrementos o mejoras en la pensión, tipo del seguro en que solicitó la pensión, etc. Este componente se encuentra cargado dentro del esquema \textit{pensiones\_owner}, el cual tiene las siguientes tablas:
+
+\begin{itemize}
+\item PRESTACIONES.- Contiene la información general de las prestaciones\footnote{Una prestación es el derecho otorgado por el IESS a las personas que cumplen los requisitos necesarios} otorgadas por el IESS
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{5.1}{5}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r}
+\caption{\headlinecolor{\underline{Información de prestaciones}}}
+\label{tab:info_PRESTACIONES} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE PRESTACIONES}\\\hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE PRESTACIONES}\\\hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+
+1 & ACUMULADO\_MES\_INICIAL & NUMBER(2,0)& Yes & & Define el mes del periodo inicial de los acumulados calculados \\
+2 & COEFICIENTE\_TEORICO & NUMBER(10,8) & No &  & Coeficiente para cálculo de pensión, incluido pagos extemporáneos \\
+3 & COEFICIENTE\_REAL & NUMBER(10,8) & No & & Coeficiente para cálculo de pensión, sin pagos extemporáneos \\
+4 & ACUMULADO\_MES\_FINAL & NUMBER(2,0)&Yes& & Define el mes del periodo final de los acumulados calculados \\
+5 & ACUMULADO\_ANO\_INICIAL & NUMBER(4,0) &Yes& & Define el año del periodo inicial de los acumulados calculados \\
+6 & ACUMULADO\_ANO\_FINAL & NUMBER(4,0) &Yes& & Define el año del periodo final de los acumulados calculados \\
+7 & SECUENCIAL\_PRESTACION & NUMBER(10,0) & No & & Define el secuencial de la prestación \\
+8 & TIPO\_SEGURO & VARCHAR2(2 BYTE) & No&  & Define el código del tipo de seguro \\
+9 & TIPO\_PRESTACION & VARCHAR2(2 BYTE) & No& & Define la clave primaria de los tipos de prestación \\
+10& ASEGURADO & VARCHAR2(10 BYTE) & No & & Define una identificación única para el asegurado \\
+11& NUMERO\_ACUERDO & NUMBER(7,0) & No & & Define el número del acuerdo \\
+12& FECHA\_ACUERDO & DATE         & No & & Define la fecha del acuerdo \\
+13& FECHA\_DERECHO & DATE         & No & & Fecha desde cuando tiene derecho \\
+
+\end{longtable}
+\endgroup
+
+\item BENEFICIARIOS.- Contiene la información del tipo de beneficiario\footnote{El beneficiario es la persona que recibe la prestación}
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{3.7}{4}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r }
+\caption{\headlinecolor{\underline{Información de beneficiarios}}}
+\label{tab:info_BENEFICIARIOS} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE BENEFICIARIOS DE PENSIONES}\\\hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DE BENEFICIARIOS DE PENSIONES}\\\hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+1 & SECUENCIAL\_PRESTACION & NUMBER(10,0)            & No & &  \\
+2 & IDENTIFICACION\_BENEFICIARIO & VARCHAR2(10 BYTE) & No & & Define la identificación del beneficiario de la pensión \\
+3 & NOMBRES\_APELLIDOS & VARCHAR2(80 BYTE) & No & & Define el nombre y apellidos del beneficiario de pensión \\
+4 & TIPO\_BENEFICIARIO & VARCHAR2(6 BYTE) & No& & Define el tipo de parentesco, el dominio del parentesco será la familia \\
+5 & FECHA\_NACIMIENTO\_CONCESION & DATE & No & & Define la fecha de nacimiento que el asegurado tenía registrado en el Registro Civil, el momento de la concesión \\
+6 & ESTADO\_CIVIL\_CONCESION & VARCHAR2(3 BYTE) &Yes & & Define el estado civil que el asegurado tenia el momento de la concesion. \\
+7 & ESTADO\_VIGENCIA & CHAR(1 BYTE) & No& & Define el estado de vigencia del beneficiario para recibir la pensión \\
+8 & FECHA\_INICIAL\_PENSION & DATE& No& & Define la fecha inicial desde que se pagaría la pensión \\
+9 & FECHA\_FINAL\_PENSION & DATE& Yes  & & Define la fecha final hasta cuando se pagaría la pensión \\
+10& VALOR\_PENSION & NUMBER(12,2) & No&  & Define el valor de la pensión a ser pagada mensualmente \\
+11& VALOR\_PENSION\_SUSPENSO & NUMBER(12,2) & Yes& & Define el valor de pensión que queda suspensa de ser pagada por diferentes causas \\
+12& VALOR\_AUMENTOS & NUMBER(12,2) & No & & Define el valor acumulado de los aumentos que se han realizado a lo largo del tiempo \\
+13 & VALOR\_ULTIMO\_AUMENTO & NUMBER(12,2) & No & & Define el valor del último aumento que fue realizado. \\
+14 & VALOR\_COMPENSACION & NUMBER(12,2) & No& & Define el valor de la compensación en la concesión. \\
+
+
+\end{longtable}
+\endgroup
+
+\item ROL\_PERIODO.- Contiene la información del rol de pago por período de pago
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{5.2}{6}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r }
+\caption{\headlinecolor{\underline{Información del Rol Período}}}
+\label{tab:info_ROL_PERIODO} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DEL NOMINA}\\\hline
+
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION DEL NOMINA}\\\hline
+ COLUMN\_ID
+& COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+1 & VALOR\_ACOBRAR & NUMBER(12,2) &No & & Define el valor a cobrar por parte del pensionista \\
+2 & FECHA\_COBRO & DATE           &Yes& & Define la fecha de cobro del rol. \\
+3 & TOTAL\_DESCUENTOS & NUMBER(12,2) &No& & Define el valor total de descuentos para el rol \\
+4 & TOTAL\_INGRESOS & NUMBER(12,2) &No& & Define el valor total de ingresos para el rol \\
+5 & FECHA\_GENERACION & DATE      &No& & Define la fecha de generación del rol \\
+6 & IDENTIFICACION\_BENEFICIARIO & VARCHAR2(10 BYTE) &No&& Define la identificación del beneficiario de la pensión \\
+7 & TIPO& VARCHAR2(1 BYTE)       &No& & Define el tipo del periodo \\
+8 & ANO   & NUMBER(4,0)         &No& & Define el año del periodo \\
+9 & MES   & NUMBER(2,0)         &No& & Define el mes del periodo \\
+10& ESTADO\_ROL & VARCHAR2(1 BYTE) &No& & Define el código del estado del rol \\
+11& SECUENCIAL\_PRESTACION & NUMBER(10,0) &No& & Define el secuencial de la prestación \\
+
+
+\end{longtable}
+\endgroup
+
+\item KSMIGTAPORTES.- Contiene la información de los aportes anteriores a la aparación del sistema HL
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{6.1}{6}\selectfont
+\begin{longtable}[H]{ r|r|r|r|r|r }
+\caption{\headlinecolor{\underline{Información de aportes de Host}}}
+\label{tab:info_KSMIGTAPORTES} \\[-0.1cm]
+
+\toprule
+
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION SISTEMA HOST}\\\hline
+
+COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COLUMN\_ID
+& COMMENTS  \\
+
+
+  \midrule
+  \endfirsthead
+
+  \toprule
+\rowcolor{naranja}
+\multicolumn{6}{c}{INFORMACION SISTEMA HOST}\\\hline
+COLUMN\_NAME
+& DATA\_TYPE
+& NULLABLE
+& DATA\_DEFAULT
+& COLUMN\_ID
+& COMMENTS  \\
+  \midrule
+  \endhead
+
+  \hline \multicolumn{6}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+
+CEDIDEUSU & VARCHAR2(10 BYTE) & No & & 1 & \\
+NUMPAT    & VARCHAR2(13 BYTE) & No & & 2 & \\
+CODSEC    & CHAR(1 BYTE)      & No & & 3 & \\
+CODTIPSEG & VARCHAR2(3 BYTE)  & No & & 4 & \\
+CODANI    & NUMBER(4,0)       & No & & 5 & \\
+CODMES    & NUMBER(2,0)       & No & & 6 & \\
+TIPPLA    & CHAR(1 BYTE)      & No & & 7 & \\
+CODREG    & VARCHAR2(2 BYTE)  & Yes & & 8 & \\
+FECREGAPO & VARCHAR2(8 BYTE)  & Yes & & 9 & \\
+VALDIV    & NUMBER(10,4)      & Yes & & 10 & \\
+NUMDIATRA & VARCHAR2(2 BYTE)  & Yes & & 11 & \\
+
+
+
+\end{longtable}
+\endgroup
+
+\end{itemize}
+
+No se hace un análisis detallado por cada tabla del esquema, pues ampliaría innecesariamente la longitud del presente documento. Es por ello que, en los cuadros \ref{tab:info_KSPCOTEMPTIP}, \ref{tab:info_KSRECTPLADET}, \ref{tab:info_KSRECTPLANILLAS}, \ref{tab:info_KSPCOTREGCIV} , \ref{tab:info_PRESTACIONES}, \ref{tab:info_BENEFICIARIOS}, \ref{tab:info_ROL_PERIODO} y \ref{tab:info_KSMIGTAPORTES} se plasma una descripción general del contenido y la estructura de cada una de ellas.
+
+Ahora bien, las tablas presentadas anteriormente son independientes entre sí, por lo que necesitan integrarse de manera conjunta para tener  información consolidada y alcanzar el objetivo planteado. El código \textit{.sql} empleado proporciona los atributos necesarios para la obtención de la información inicial, misma que se someterá al proceso KDD. Se accede a los scripts que generaron esta información haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/tree/main/SQL/TFM}{clic aquí}
+
+% A continuación, se presenta el código utilizado:
+% 
+% \begin{lstlisting}[style=sqlstyle]
+% -- JUBILADOS DE VEJEZ, INVALIDEZ Y DISCAPACIDAD QUE HAYAN ACCEDIDO AL DERECHO ENTRE 2012 Y 2022
+% create table jub_cd656 tablespace tb_actuarial as
+% select pres.asegurado cedula, decode(rc.genper,'1','H','2','M') sexo, rc.fecnacper fecha_nacimiento
+% --, trunc(months_between(pres.fecha_derecho, rc.fecnacper)/12,0) edad_al_derecho
+% , min(pres.fecha_derecho) fecha_derecho, max(pres.numero_imposiciones) num_imposiciones
+%  , case when pres.tipo_prestacion in ('ER','JV','MM','MP') then 'VEJEZ'
+%         when pres.tipo_prestacion in ('JI','IN') then 'INVALIDEZ'
+%         when pres.tipo_prestacion in ('DV') then 'DISCAPACIDAD' end tipo_prestacion
+% from pensiones_owner.prestaciones pres 
+% left join iess_owner.kspcotregciv rc on rc.cedideusu = pres.asegurado
+% where pres.tipo_seguro  in ('SG','ZF','TE','CE')
+% and pres.tipo_prestacion in ('ER','JV','MM','MP','JI','IN','DV') 
+% and pres.estado_prestacion not in ('X')
+% and extract(year from pres.fecha_derecho) between 2012 and 2022
+% group by pres.asegurado, decode(rc.genper,'1','H','2','M'), rc.fecnacper
+% --, trunc(months_between(pres.fecha_derecho, rc.fecnacper)/12,0)
+% , case when pres.tipo_prestacion in ('ER','JV','MM','MP') then 'VEJEZ'
+%         when pres.tipo_prestacion in ('JI','IN') then 'INVALIDEZ'
+%         when pres.tipo_prestacion in ('DV') then 'DISCAPACIDAD' end;
+% -- 7 seg
+% select count(1), count(distinct cedula) from jub_cd656;
+% -- 405.025	404.718
+% 
+% -- TRASPONER TIPO PRESTACION
+% create table tras_tp tablespace tb_actuarial as
+% select * from (select cedula, tipo_prestacion from jub_cd656
+% )
+% pivot 
+% (
+%    count(1)
+%    for(tipo_prestacion) in ('VEJEZ' as VEJ, 'INVALIDEZ' as INV, 'DISCAPACIDAD' as DIS)
+% );
+% -- 1 seg
+% select count(1) n_reg, count(distinct cedula) n_ced from tras_tp;
+% -- 404.718	404.718
+% 
+% -- PEGAR TIPO PRESTACION
+% create table pob_cd656 tablespace tb_Actuarial as
+% select t1.cedula, t1.sexo, t1.fecha_nacimiento, min(t1.fecha_derecho) fecha_derecho, max(t1.num_imposiciones) num_imposiciones
+% , case when vej = 1 then 'VEJ;' when vej = 0 then null end vej
+% , case when inv = 1 then 'INV;' when inv = 0 then null end inv
+% , case when dis = 1 then 'DIS;' when dis = 0 then null end dis
+% from jub_cd656 t1
+% inner join tras_tp t2 on t2.cedula = t1.cedula
+% group by t1.cedula, t1.sexo, t1.fecha_nacimiento
+% , case when vej = 1 then 'VEJ;' when vej = 0 then null end
+% , case when inv = 1 then 'INV;' when inv = 0 then null end
+% , case when dis = 1 then 'DIS;' when dis = 0 then null end;
+% -- 1 seg
+% select count(1) n_reg, count(distinct cedula) n_jub from pob_cd656;
+% -- 404.718	404.718 -- Ok.
+% ---------------------- TRAER LOS ULTIMOS 5 AÑOS DE APORTES CON SU SECTOR--------------------------
+% -- OBTENER APORTES DE HISTORIA LABORAL Y DE HOST
+% create table pob_cd656_apo tablespace tb_actuarial as
+% select dt.numafi, dt.rucemp, dt.aniper, dt.mesper, dt.valsue,  to_char(dt.numdialab) numdialab
+% , case when tpe.codsec = 'P' then
+%        case when (dt.rucemp = dt.numafi || '001' and dt.codreltra  not in ('74','75')) then 'INDEPENDIENTES'
+%         else 'PUBLICO' end
+%        when tpe.codsec = 'R' then
+%        case when (dt.rucemp = dt.numafi || '001' and dt.codreltra  not in ('74','75')) then 'INDEPENDIENTES'
+%         else 'PRIVADO' end
+%        when tpe.codsec = 'V' then 'VOLUNTARIO'
+%        end sector
+% from iess_owner.ksrectpladet dt
+% inner join iess_owner.ksrectplanillas pla
+%            on dt.rucemp = pla.rucemp and dt.codsuc = pla.codsuc and dt.codtippla = pla.codtippla and dt.tipper = pla.tipper 
+%            and dt.aniper = pla.aniper and dt.mesper = pla.mesper AND dt.secpla = pla.secpla
+% left join iess_owner.kspcotemptip tpe on tpe.codtipemp = dt.codtipemp 
+% where dt.numafi in (select cedula from tras_tp)
+% and dt.codtippla in ('A', 'AA', 'RA', 'EX','ATH','ATJ') and pla.esttippla <> 'ANU' and pla.valnorpla > 0
+% and tpe.codsec IN ('P', 'R', 'V') and dt.mesper between 1 and 12
+% union all
+% select host.cedideusu, host.numpat, host.codani, host.codmes, valdiv, host.numdiatra, 'SGO' sector
+% from hist_iessmigra.ksmigtaportes host
+% left join iess_owner.kspcotemptip tpe on tpe.codtipemp = host.codtipemp
+% where host.cedideusu in (select cedula from tras_tp)  
+% and host.codmes between 1 and 12;
+% -- 275 seg
+% select count(numafi), count(distinct numafi) from pob_cd656_apo;
+% -- 155.768.635	404.695
+% select sector, count(numafi), count(distinct numafi) from pob_cd656_apo group by sector order by sector;
+% -- 
+% -- AGRUPAR POR CEDULA, ANIO, MES, SUMAR DIAS, CONTAR REGISTROS, CONTAR EMPLEADORES
+% create table pob_cd656_apo_ag tablespace tb_actuarial as
+% select numafi, aniper anio, mesper mes, sum(valsue) sueldo, sum(to_number(numdialab)) numdialab
+% , count(1) n_registros, count(distinct rucemp) n_empleadores, sector
+% , to_date('01/'|| mesper || '/' || aniper)  fecha_aporte
+% from pob_cd656_apo
+% group by numafi, aniper, mesper, sector, to_date('01/'|| mesper || '/' || aniper);
+% -- 738 seg
+% -- 760 seg
+% 
+% select count(1), count(distinct numafi) from pob_cd656_apo_ag;
+% -- 136.734.763	404.695
+% select numafi, anio, mes from pob_cd656_apo_ag group by numafi, anio, mes having count(1)> 1 order by numafi, anio, mes;
+% -- CASI 1 millon 200 tienen mas de un sector en un-- ACTUALIZAR DIAS TRABAJADOS A 30 DIAS PARA MAYORES A 30
+% 
+% -- TRASPONER SECTOR
+% create table tras_cot tablespace tb_actuarial as
+% select * from (select numafi, anio, mes, sector from pob_cd656_apo_ag
+% )
+% pivot 
+% (
+%    count(1)
+%    for(sector) in ('PUBLICO' as PUB, 'PRIVADO' as PRI, 'VOLUNTARIO' as VOL, 'INDEPENDIENTES' as IND, 'SGO' as SGO)
+% );
+% -- 213 seg
+% select count(1) n_Reg, count(distinct numafi) n_afi from tras_cot;
+% -- 135.566.861	404.695
+% select count(distinct numafi || anio||mes) n_Reg from tras_cot;
+% -- 135.566.861 --Ok.
+% update tras_cot set pub = 1 where pub >1;-- 0
+% update tras_cot set pri = 1 where pri >1;-- 0
+% update tras_cot set vol = 1 where vol >1;
+% update tras_cot set ind = 1 where ind >1;
+% update tras_cot set sgo = 1 where sgo >1;
+% 
+% create table tras_cot_c1 tablespace tb_actuarial as
+% select numafi, anio, mes 
+% , case when pub = 1 then 'PUB;' when pub = 0 then null end pub 
+% , case when pri = 1 then 'PRI;' when pri = 0 then null end pri 
+% , case when vol = 1 then 'VOL;' when vol = 0 then null end vol 
+% , case when ind = 1 then 'IND;' when ind = 0 then null end ind 
+% , case when sgo = 1 then 'SGO;' when sgo = 0 then null end sgo
+% from tras_cot;
+% 
+% create table tras_cot_c2 tablespace tb_actuarial as
+% select numafi, anio, mes 
+% , pub || pri|| vol|| ind || sgo sector
+% from tras_cot_c1;
+% -- 45 seg
+% select count(1) n_reg, count(distinct numafi||anio||mes) n_dist from tras_cot_c2;
+% -- 135.566.861	135.566.861 -- Ok.
+% 
+% -- #PEGAR EL SECTOR #
+% create table cot_cd_656 tablespace tb_actuarial as
+% select t1.numafi, t1.anio, t1.mes, t2.sector, fecha_aporte, sum(sueldo) sueldo, sum(numdialab) numdialab
+% from pob_cd656_apo_ag t1
+% inner join tras_cot_c2 t2 on t2.numafi = t1.numafi and t2.anio = t1.anio and t2.mes = t1.mes
+% group by t1.numafi, t1.anio, t1.mes, t2.sector, fecha_aporte;
+% -- 376 seg
+% select count(1) n_reg, count(distinct numafi||anio||mes) n_dist from cot_cd_656;
+% -- 135.566.861	135.566.861 -- Ok.
+% 
+% update cot_cd_656 set numdialab = 30 where numdialab > 30;
+% commit;
+% -- 979,063 rows updated.
+% select numdialab, count(1) n_reg from cot_cd_656 group by numdialab order by numdialab;-- Ok.
+% --------------------------------------
+% -- ASIGNAR RANKING DE APORTES DE ECHA DESCENDENTES POR CEDULAS
+% create table rank_cot tablespace tb_actuarial as
+% select numafi, anio, mes, sector, numdialab, sum(sueldo) sueldo, rank() over (partition by numafi order by anio desc, mes desc) ranking
+% from cot_cd_656
+% where sueldo > 0
+% group by numafi, anio, mes, numdialab, sector;
+% -- 380 seg
+% 
+% select count(1), count(distinct numafi) from rank_cot;
+% -- 133.522.955	404.627
+% 
+% -- TOMAR LOS ULTIMOS 60 MESES
+% create table ulti_60_cot tablespace tb_actuarial as
+% select * from rank_cot 
+% where ranking <= 60; 
+% -- 11 seg 
+% select count(1), count(distinct numafi) from ulti_60_cot;
+% -- 24.213.034	404.627
+% select numdialab, count(1), count(distinct numafi) from ulti_60_cot group by numdialab order by numdialab;
+% 
+% select sector, count(1) n_Reg from ulti_60_cot group by sector order by sector;
+% -- comprobar estos 
+% -- PRI;VOL;IND;	28
+% -- PUB;PRI;IND;	1371
+% select * from ulti_60_cot where sector = 'PRI;VOL;IND;';
+% -- ES CORRECTO
+% 
+% -- TOMAR SOLO LOS JUBILADOS QUE TUVIERON AL MENOS UNA COTIZACION COMO INDEPENDIENTES EN LOS ULTIMOS 5 AÑOS
+% create table ult_60cot_cd656 tablespace tb_Actuarial as
+% select numafi cedula, decode(substr(numafi,1,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,2,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,3,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,4,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,5,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,6,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,7,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,8,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,9,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') ||
+%  decode(substr(numafi,10,1),'1','*!-','2','#%&','3','%+/','4','&@&','5','$*#','6','@!-','7','+%&','8','/+/','9','-@&','0','!#+') cedula_cod 
+% , t2.sexo, t2.fecha_nacimiento, t2.fecha_Derecho, t2.num_imposiciones, t2.vej || t2.inv||t2.dis tipo_pres
+% , anio, mes, sector, numdialab,sueldo base_aportacion, ranking num_cot
+% from ulti_60_cot t1
+% inner join pob_cd656 t2 on t2.cedula = t1.numafi
+% where sector like '%IND%';
+% -- 9 seg
+% select count(1) n_reg from ult_60cot_cd656;
+% -- 2.743.152--Ok.
+% 
+% -- ELIMINAR INNECESARIAS
+% drop table pob_cd656_apo purge;
+% drop table pob_cd656_apo_ag purge;
+% drop table rank_cot purge;
+% drop table sum_pob_cd656_apo purge;
+% \end{lstlisting}
+
+De manera general, se  obtiene la información de los pensionistas del IESS para el período 2012-2023. Luego, se agrega la variable del tipo de prestación (vejez, invalidez o discapacidad). Después, se calculan los aportes de las personas de HL y de Host durante toda la vida laboral; y finalmente, se estima el número de imposiciones de cada pensionista.
+
+% Un hecho importante de mencionar es que se considera la información del \textit{Registro Civil}, con la finalidad de tener variables personales lo más reales posibles. Esto debido a que, se evidenció que los registros administrativos del IESS están contaminados y son inconsistentes desde su origen\footnote{Inicialmente la generación de planillas era de forma manual y en documentos físicos, por lo que una vez que pasaron a digitalizarse arrastraron un sinnúmero de novedades pues era un proceso manual}. Los novedades encontradas eran mal ingreso del sexo (por ejemplo existían categorías con valores de H, M, 1, 2, null, hombre, mujer), fechas de nacimiento y muerte erróneas (existían personas que murieron antes de nacer o nacían por el año 2030) y en distintos formatos (por ejemplo dd/mm/yyy, yyyy/dd/mm, mm/dd/yyyy ); y, en muchos casos una alta presencia de missing values.
+% 
+% La solución a cada problema detectado, con el fin de tener información adecuada, requiere de un amplio tiempo de análisis y ejecución, además de que se debía realizar un procesamiento desde el origen de los datos (registros administrativos de datan desde el 13 de marzo de 1928 (\href{https://www.iess.gob.ec/en/web/afiliado/noticias?p_p_id=101_INSTANCE_3dH2&p_p_lifecycle=0&p_p_col_id=column-2&p_p_col_count=4&_101_INSTANCE_3dH2_struts_action=\%2Fasset_publisher\%2Fview_content&_101_INSTANCE_3dH2_assetEntryId=2246192&_101_INSTANCE_3dH2_type=content&_101_INSTANCE_3dH2_groupId=10174&_101_INSTANCE_3dH2_urlTitle=iess-celebra-hoy-86-anos-de-servicio-al-pais&redirect=\%2Fen\%2Fweb\%2Fafiliado\%2Fnoticias?mostrarNoticia=1#:~:text=Posteriormente\%2C\%20el\%2025\%20de\%20julio,Ecuatoriano\%20de\%20Seguridad\%20Social\%2DIESS.}{clic aquí})) y en distintos sistemas de datos. Por ello, con el fin de reducir los tiempos de análisis se hizo merge por DNI (foreing key) entre las tablas del IESS y el Registro Civil para tener información personal estándar y consistente.
+
+La información resultante del preprocesamiento de las bases transaccionales del IESS, que contiene los datos del historial laboral, se denominará \textit{data\_afi}, mientras que la información sobre pensiones se almacenará en \textit{pensi}.
+
+\section{Limpieza y transformación de datos} \label{sec:limpieza_datos}
+
+\subsection{Para la información laboral}
+
+Para aliviar el costo computacional, se transforma a la variable \textit{SECTOR} (sector en donde trabajó el afiliado), por abreviaciones más simples. Por ejemplo, a la relación de trabajo \textit{PRIVADO} se le abrevia por \textit{PRI} y así respectivamente. De acuerdo a la \legalcite{ResIESS_CD100}, el mínimo número de imposiciones que debe tener una persona para solicitar la jubilación son 60 imposiciones, por lo que, se eliminan los registros de las personas que tienen menos de 60 imposiciones.
+
+Por otra parte, como el sistema de información del afiliado del IESS migró del sistema \textit{Host} (funcionó hasta el año 2004) al sistema \textit{Historia laboral} (del año 2005 hasta la presente fecha), es necesario recurrir a la normativa del Seguro IVM para determinar el valor de las tasas de aportación para estimar el ingreso al fondo de pensiones. 
+
+En este sentido, se han revisado la \legalcite{LeySS} (para los años 2000-2002) y las resoluciones \legalcite{ResIESS_CI150} (para los años 2003-2004), \legalcite{ResIESS_CD081} (para los años 2005-2014), \legalcite{ ResIESS_CD501} (para los años 2015-2016), \legalcite{ResIESS_CD515} (para los años 2017-2020) y \legalcite{ResIESS_CD609} (desde el año 2021 en adelante)  para determinar el valor de las tasas de aportación y las resoluciones \legalcite{ResIESS_CI141} (para los años 2000-2020), \legalcite{ResIESS_CD459} y \legalcite{ResIESS_CD596} (desde el año 2021 en adelante) para tener conocimiento sobre el valor de la tasa de interés actuarial. Se procede a estimar las variables \textit{SUELDO}\footnote{Corresponde a la suma de la materia gravada sobre el cual aporte el afiliado}, \textit{APORTE}\footnote{Corresponde a la multiplicación de la tasa de aporte por el sueldo} e \textit{INTERES}\footnote{Corresponde a la multiplicación entre el aporte con la tasa actuarial}.
+
+\begingroup\scriptsize
+\setlength\extrarowheight{1pt}
+\setlength\aboverulesep{-0.5pt}
+\setlength\belowrulesep{0pt}
+\fontsize{8}{8}\selectfont
+\begin{longtable}[H]{ r|r|r} 
+\caption{\headlinecolor{\underline{Tasa de aportación y tasa actuarial históricas}}}
+\label{tab:info_tasa_aport_actuarial}\\[-0.1cm]
+
+\toprule
+\rowcolor{naranja}
+Año & Tasa de aportación & Tasa actuarial \\  \hline
+
+\midrule
+\endfirsthead
+
+\toprule
+\rowcolor{naranja}
+Año & Tasa de aportación & Tasa actuarial \\  \hline
+\midrule
+\endhead
+
+  \hline \multicolumn{3}{r}{continúa...} \\
+  \endfoot
+
+  \bottomrule
+  %\caption*{\scriptsize \textbf{Fuente}: Datos administrativos del IESS.\\\textbf{Elaborado}: DAIE.}
+  \endlastfoot
+  
+   2000 & 8,5\% & 4,0\% \\
+   2001 & 8,5\% & 4,0\% \\
+   2002 & 8,5\% & 4,0\% \\
+   2003 & 9,15\% & 4,0\% \\
+   2004 & 9,15\% & 4,0\% \\
+   2005 & 9,74\% & 4,0\% \\
+   2006 & 9,74\% & 4,0\% \\
+   2007 & 9,74\% & 4,0\% \\
+   2008 & 9,74\% & 4,0\% \\
+   2009 & 9,74\% & 4,0\% \\
+   2010 & 9,74\% & 4,0\% \\
+   2011 & 9,74\% & 4,0\% \\
+   2012 & 9,74\% & 4,0\% \\
+   2013 & 9,74\% & 4,0\% \\
+   2014 & 9,74\% & 4,0\% \\
+   2015 & 5,96\% & 4,0\% \\
+   2016 & 5,96\% & 4,0\% \\
+   2017 & 6,90\% & 4,0\% \\
+   2018 & 7,76\% & 4,0\% \\
+   2019 & 8,96\% & 4,0\% \\
+   2020 & 9,96\% & 4,0\% \\
+   2021 & 11,06\% & 6,25\% \\
+   2022 & 11,06\% & 6,25\% \\
+   2023 & 11,06\% & 6,25\% \\
+
+\end{longtable}
+\endgroup
+
+Ahora bien, se crean las variables \textit{N\_PRI}, \textit{N\_PUB}, \textit{N\_IND}, \textit{N\_VOL\_EX} y \textit{N\_VOL\_EC} que guardarán la información sobre las veces que el afiliado aporte en los sectores Privado, Público, Independiente, Voluntario del Exterior y Voluntario residente del Ecuador, respectivamente.
+
+El acceso a los scripts que generaron esta información es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_clean_data.ipynb}{clic aquí}.
+
+\section{Algoritmos de clúster jerárquico} \label{sec:alg_clus_jear}
+
+La implementación del algoritmo de clúster jerárquico para la identificación de valores atípicos se basa en el siguiente código:
+
+\begin{lstlisting}[style=pythonstyle]
+def cluster_jerarquico( data_si_dic ):
+    print('Algoritmo Cluster Jerárquico')
+    inicio = time.time()
+    nom = 'ATI_CJ'
+    data_val_ati = {}
+    for cedula in data_si_dic:
+
+        if( len( data_si_dic[ cedula ]['SALARIO'] ) > 1 ): #Para formar al menos un cluster
+
+            aux = np.array( data_si_dic[ cedula ]['SALARIO'] ).reshape(-1, 1)
+            Z = linkage( aux , method='single', metric='euclidean')
+
+            num_clusters = 2  # Puedes ajustar este valor según tus necesidades
+            clusters = fcluster(Z, num_clusters, criterion='maxclust')
+
+            if( len( np.unique(clusters) ) > 1 ): #Para considerar al menos 2 cluster
+                # Calcular el centroide de cada clúster
+                cluster_centers = np.array([[ np.nanmean(aux[clusters == i], axis=0)[0], i ] for i in range(1, num_clusters + 1)] ) 
+
+                Q1 = np.quantile(aux, 0.25)
+                Q3 = np.quantile(aux, 0.75)
+                IQR = Q3-Q1
+                LI = Q1 - 1.5 * IQR
+                LS = Q3 + 1.5 * IQR
+
+                cl_at = np.where( cluster_centers[:,0] > (LS +  1e-8) )[0]
+                cluster_centers[cl_at][:, 1]
+
+                mod_aux = np.zeros((len(aux), 2))
+                mod_aux[:, 0] = aux[:, 0]  # Copiar los valores originales de aux en la primera columna
+                mod_aux[np.isin(clusters, cluster_centers[cl_at][:, 1]), 1] = 1  # Asignar 1 en la segunda columna donde el cluster es 1
+
+                data_val_ati[cedula] = {'SALARIO': mod_aux[:, 0].tolist(),
+                                             nom : mod_aux[:, 1].tolist(),
+                                        'INDICE' : data_si_dic[ cedula ]['INDICE']}
+            else:
+                data_val_ati[cedula] = { 'SALARIO': aux.flatten().tolist(),
+                                               nom:  [-1] * len(aux),
+                                         'INDICE' : data_si_dic[ cedula ]['INDICE']} 
+
+        else:
+            data_val_ati[cedula] = { 'SALARIO': data_si_dic[ cedula ]['SALARIO'],
+                                           nom:  [-2] * len( data_si_dic[ cedula ]['SALARIO'] ),
+                                     'INDICE' : data_si_dic[ cedula ]['INDICE']}
+    fin = time.time()  
+    tm = fin-inicio
+    print('\tTiempo de ejecución es:',tm//3600,'horas con',tm%3600//60,'minutos y',tm%60,'segundos' )
+    
+    return data_val_ati
+
+\end{lstlisting}
+
+\subsection{Ejemplos de la clasificación y correcciones}
+
+\begin{figure}[H]  
+    \centering
+    \hspace{-0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_20013447_2.png} 
+    \end{minipage}
+    \hspace{0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_20013447_3.png} 
+    \end{minipage}
+    \vfill  %
+    \hspace{-0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_3608_2.png} 
+    \end{minipage}
+    \hspace{0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_3608_3.png} 
+    \end{minipage}
+   
+   \vfill 
+   \hspace{-0.06\textwidth} 
+  \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_135752_2.png} 
+    \end{minipage}
+    \hspace{0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_135752_3.png}  
+        
+    \end{minipage}
+    \vfill  %
+    \hspace{-0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_154409_2.png}  
+    \end{minipage}
+    \hspace{0.06\textwidth} 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.23]{graficos/algoritmo_cj_154409_3.png}  
+    \end{minipage}
+
+\caption{\headlinecolor{\underline{Ejemplos de la aplicación del CJ y su correción-Anexos }}}
+\label{fig:algoritmo_cj_depu_anex}  
+    
+\end{figure}
+
+
+El acceso a los scripts que generaron todo el desarrollo y resultados del algoritmo del clúster jerárquico es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_cluster_jerarquico.ipynb}{clic aquí}.
+
+
+\section{Algoritmos de K-Means} \label{sec:alg_kmean}
+
+La implementación del algoritmo de K-Means para la identificación de atípico se basa en el siguiente código:
+
+\begin{lstlisting}[style=pythonstyle]
+#Determinar el número de cluster por el método del codo
+def num_cluster( data, num, num_sample, tipo, duplicados ):
+    print('*' * 102)
+    print('Determinación del número de clúster por el método del codo y silueta')
+    inicio = time.time()
+    
+    data_si_dic = data.copy()
+    
+    if( num_sample != 'todo' ):
+        sample_size = num_sample
+        sample_keys = random.sample( list(data_si_dic.keys()), min(sample_size, len(data_si_dic))) #Seleccion de cedulas
+        data_filt = {key: data_si_dic[key] for key in sample_keys if key in data_si_dic}
+    if (num_sample == 'todo' ):
+        data_filt = data_si_dic
+        
+    for ced  in data_filt:
+        
+        if( duplicados=='si'):
+            aux = np.array( data_filt[ced][ tipo ]).reshape(-1, 1)
+        
+        if( duplicados=='no'):
+            aux = np.unique( np.array( data_filt[ced][ tipo ])).reshape(-1, 1)
+        
+        if len(aux) <= 1:
+            data_filt[ced]['num_codo'] = 1
+            data_filt[ced]['max_silueta'] = 1
+           
+        
+        tf = min(num, len(aux) - 1) + 1
+        
+        distorsion = []
+        silueta = []
+
+        for i in range( 2, tf ):
+            km = KMeans( i, init = 'k-means++', n_init = 1, max_iter = 300, tol = 1e-4, random_state = semilla )
+            clustering = km.fit_predict( aux )
+
+            if( len( np.unique( clustering ) ) > 1):
+                distorsion.append( km.inertia_ )
+                silueta.append( metrics.silhouette_score(aux, clustering))
+            
+            else:
+                distorsion.append(0)
+                silueta.append(0)
+    
+        if( len(distorsion) > 1 and len(silueta) > 1 ):
+            data_filt[ced]['num_codo'] = kneed.KneeLocator(range(2, tf), distorsion[:tf], curve="convex", 
+                                                             direction="decreasing").elbow or 1
+    
+            data_filt[ced]['max_silueta'] =  max_clust_silueta( silueta )
+        
+        else:
+            data_filt[ced]['num_codo'] = 1
+            data_filt[ced]['max_silueta'] = 1
+
+    fin = time.time()  
+    print('\tTiempo de ejecución es: ',  (fin-inicio)//3600, ' horas con ' ,  (fin-inicio)%3600//60 , ' minutos y', (fin-inicio)%60, ' segundos' )
+    print('*' * 102)
+    return data_filt
+\end{lstlisting}
+
+\begin{lstlisting}[style=pythonstyle]
+#Se escojen dos cluster para trabajar
+def clasificacion_kmean( data_dic, n, val, tipo, duplicados ):
+    print('*' * 102)
+    print('Clasificación de las observaciones según cluster')
+    inicio = time.time()
+    
+    c_tipo = 'CLA_KM_M' + str( tipo )
+    n_tipo = 'ATI_KM_M' + str( tipo )
+    
+    nm1 = 'cent1_M'+ str( tipo )
+    nm2 = 'cent2_M'+ str( tipo )
+    ls = 'LS_M' + str( tipo)
+            
+    for ced in data_dic:
+        aux = None
+        
+        if( duplicados =='si'):
+            aux = np.array( data_dic[ced][ val ] ).reshape(-1, 1)
+        if( duplicados =='no'):
+            aux = np.unique( np.array( data_dic[ced][ val ] ) ).reshape(-1, 1)
+            
+        Q1 = np.quantile(aux, 0.25)
+        Q3 = np.quantile(aux, 0.75)
+        IQR = Q3-Q1
+        LI = Q1 - 1.5 * IQR
+        LS = Q3 + 1.5 * IQR
+
+        data_dic[ced][ls] = LS    
+            
+        if aux.shape[0] >= n:
+            
+            kmeans = KMeans( n_clusters = n, init = 'k-means++', n_init = 1, random_state = semilla)
+            clu = kmeans.fit_predict( aux ) + 1 
+            
+            data_dic[ced][c_tipo] = clu
+            
+            ncl = np.unique( clu )
+            centroide = np.array([[ np.nanmean( aux[clu == i], axis=0)[0], i ] for i in range(1, len(ncl) + 1)] ) 
+            
+            if len( ncl ) == 1:
+                data_dic[ced][n_tipo] =  [-2] * len( aux ) #Clasificacion unica de todos los valores
+                data_dic[ced][nm1] = centroide[:,0][0]
+                data_dic[ced][nm2] = centroide[:,0][0]
+                
+            else:
+                
+                data_dic[ced][nm1] =  centroide[:,0][0]
+                data_dic[ced][nm2] =  centroide[:,0][1]
+
+                cl_at = np.where( centroide[:,0] > (LS +  1e-8) )[0]
+                
+                mod_aux = np.zeros((len( aux ), 2) )
+                mod_aux[:, 0] = aux[:, 0]  
+                mod_aux[np.isin( clu, centroide[cl_at][:, 1]), 1] = 1
+                
+                data_dic[ced][n_tipo] = mod_aux[:, 1].tolist()
+                
+#                 if len(cl_at) ==0:
+#                     data_dic[ced][nm1] =  np.nanmean( aux )
+#                     data_dic[ced][nm2] =  np.nanmean( aux )
+                    
+#                 if len(cl_at)!=0: 
+#                     data_dic[ced][nm1] =  centroide[:,0][0]
+#                     data_dic[ced][nm2] =  centroide[:,0][1]
+            
+        else:
+            data_dic[ced][n_tipo] =  [-1] * len( aux )
+            data_dic[ced][c_tipo] = np.nan
+            data_dic[ced][nm1] =  np.nan
+            data_dic[ced][nm2] =  np.nan
+
+    fin = time.time()  
+    print('\tTiempo de ejecución es: ',  (fin-inicio)//3600, ' horas con ' ,  (fin-inicio)%3600//60 , ' minutos y', (fin-inicio)%60, ' segundos' )
+    print('*' * 102)
+
+\end{lstlisting}
+
+El acceso a los scripts que generaron todo el desarrollo y resultados del algoritmo de K-Means es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_k_means.ipynb}{clic aquí}.
+
+\section{Algoritmos DBSCAN} \label{sec:alg_dbscan}
+
+La implementación del algoritmo DBSCAN para la identificación de atípico se basa en el siguiente código:
+
+\begin{lstlisting}[style=pythonstyle]
+def valor_epsilon( data, val ):
+    
+    for ced in data:
+        aux = None
+        aux = np.array( data[ced][val] ).reshape(-1, 1)
+        eps = []
+        minpt = []
+        data[ced]['eps'] = []
+        data[ced]['min_pt'] = []
+
+        for i in range(1, 12):
+            vecinos = NearestNeighbors( n_neighbors = min( i, len(aux) ) + 1  )
+            vecinos_ajustado = vecinos.fit( aux )
+            distancias = vecinos_ajustado.kneighbors(aux )[0]
+            distancias1 = distancias[:, 1:]
+            distancias_ordenadas = np.sort(distancias1.ravel())
+
+            if len( np.unique( distancias_ordenadas ) )==1:
+                eps.append( 0.0 )
+                minpt.append( i + 1 )
+
+            if len( np.unique( distancias_ordenadas ) )!=1:
+                codo = KneeLocator(np.arange(len(distancias_ordenadas)), distancias_ordenadas, curve="convex", direction="increasing")
+
+                eps.append( distancias_ordenadas[codo.elbow])
+                minpt.append( i + 1 )
+
+        for i, eps in enumerate( eps ):
+            if eps not in data[ced]['eps']:
+                data[ced]['eps'].append( eps )
+                data[ced]['min_pt'].append( minpt[i] )
+\end{lstlisting}
+
+
+\begin{lstlisting}[style=pythonstyle]
+def esti_eps_out( data_dic, val ):
+    
+    for ced in data_dic:
+        aux =  np.array( data_dic[ced][val] ).reshape(-1, 1)
+        ep = data_dic[ced]['eps']
+        mt = data_dic[ced]['min_pt']
+
+        n_clusters = []
+        n_outliers = []
+        v_e = []
+        g_e = []
+        n_e = []
+
+        for j in range(0, len(ep) ):
+
+            if  ep[ j ] <= 0.1:
+                n_clusters.append( -1 )
+                n_outliers.append( -1 )
+                v_e.append( ep[ j ] )
+                g_e.append( j )
+                n_e.append( mt[j] )
+            
+            else:
+                var1 = rangos_valores(ep[ j ])
+                ini =  max(0.1, ep[ j ] - var1 )
+                for eps in np.linspace(ini, ep[ j ], 6):
+                        labels=None
+                        db = DBSCAN( eps, min_samples = mt[j] ).fit( aux )
+                        core_samples_mask = np.zeros_like( db.labels_, dtype=bool)
+                        core_samples_mask[db.core_sample_indices_] = True
+                        labels = db.labels_
+                        n_clusters.append( len(set(labels)) - (1 if -1 in labels else 0) )
+                        n_outliers.append( list(labels).count(-1) )
+                        v_e.append( eps ) 
+                        g_e.append( j )
+                        n_e.append( mt[j] )
+ 
+        ag = np.empty((len(v_e) , 5))   
+        ag[ :, 0 ] = g_e
+        ag[ :, 1 ] = v_e
+        ag[ :, 2 ] = n_e
+        ag[ :, 3 ] = n_clusters
+        ag[ :, 4 ] = n_outliers
+        data_dic[ced]['esti_eps_out'] = ag
+\end{lstlisting}
+
+
+\begin{lstlisting}[style=pythonstyle]
+#Seleccionar el valor de epsilon y los atipicos
+def cal_eps_out( data_dic ):
+    for ced in data_dic:
+        aux = data_dic[ced]['esti_eps_out']
+        aux1 =  np.array( data_dic[ced]['SALARIO'] ).reshape(-1, 1)
+        col1 = 4
+        col2 = 3
+
+        # Encontrar el valor máximo en la columna 4 (índice 3)
+        val1 = np.max(aux[:,  col1])
+
+        # Filtrar las filas que tienen el valor máximo en la columna 4
+        fil= aux[aux[:, col1] == val1]
+
+        # Encontrar la fila con el menor valor en la columna 3 (índice 2) entre las filas filtradas
+        indice = np.argmin( fil[:, col2 ])
+
+        # Seleccionar la fila correspondiente
+        fila_max_min =  fil[ indice]
+        data_dic[ced]['eps_c'] = fila_max_min[1]
+        data_dic[ced]['mpt_c'] = fila_max_min[2]
+        
+        if fila_max_min[1] ==0:
+            data_dic[ced]['ATI_DB'] = [-1] * ( len(aux1) )
+        else:
+            db = DBSCAN( eps = fila_max_min[1], min_samples = int(fila_max_min[2]) ).fit( aux1 )
+            data_dic[ced]['ATI_DB'] = (db.labels_).tolist()
+        
+\end{lstlisting}
+
+El acceso a los scripts que generaron todo el desarrollo y resultados del algoritmo de DBSCAN es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_dbscan.ipynb}{clic aquí}.
+
+\section{Limpieza de datos antes del aprendizaje supervisado} \label{sec:limpieza_datos_super}
+
+\subsection{Para la información pensional}
+
+\begin{lstlisting}[style=pythonstyle]
+def pens_correc( data ):
+    inicio = time.time() 
+
+    cedula_1 = data[data.groupby('CEDULA_COD')['CEDULA_COD'].transform('size') == 1]['CEDULA_COD'].copy()
+    ul = data[   data['CEDULA_COD'].isin( cedula_1 )]
+    ml = data[  ~data['CEDULA_COD'].isin( cedula_1 )]
+
+    mask = ml.drop(columns=['ID_PRESTACION']).groupby('CEDULA_COD').transform(lambda x: (x == x.iloc[0]).all())
+    cedulas_iguales = ml[mask.all(axis=1)]['CEDULA_COD']
+    ml1 = ml[ ml['CEDULA_COD'].isin( cedulas_iguales)].groupby('CEDULA_COD').first().reset_index()
+
+    #Se corrigen los registros duplicados
+    ml2 = ml[ ~(ml['CEDULA_COD'].isin( cedulas_iguales))].copy()
+
+    vej_non_na = ml2[ml2['COEFICIENTE_CAL'].notna() ]
+    vej_non_na_unique = vej_non_na.sort_values('FECHA_DERECHO', ascending=False).drop_duplicates(subset='CEDULA_COD', keep='first')
+    vej_na = ml2[ml2['COEFICIENTE_CAL'].isna()]
+    vej_na_unique = vej_na.sort_values('FECHA_DERECHO', ascending=False).drop_duplicates(subset='CEDULA_COD', keep='first')
+    vej_na_unique_f = vej_na_unique[~vej_na_unique['CEDULA_COD'].isin(vej_non_na_unique['CEDULA_COD'])]
+    vej_combined = pd.concat([ vej_na_unique_f, vej_non_na_unique])
+
+    ml3 = vej_combined.reset_index().drop(columns = ['index'])
+    sal = pd.concat([ ul, ml1, ml3]) 
+    
+    return sal
+    
+    del ul, ml, mask, cedulas_iguales, ml1, ml2, ml3, vej_non_na, vej_non_na_unique,vej_na,vej_na_unique,vej_combined
+    gc.collect()
+    
+    fin = time.time()  
+    tm = fin - inicio
+    print('\tTiempo de ejecución es:',tm//3600,'horas con',tm%3600//60,'minutos y',tm%60,'segundos')
+\end{lstlisting}
+
+El acceso a los scripts que generaron todo el proceso de limpieza de datos antes del aprendizaje supervisado es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_analisis_atipicos.ipynb}{clic aquí}.
+
+El acceso a los scripts que generaron todo el proceso de transformación de datos antes del aprendizaje supervisado es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_prepacion_data.ipynb}{clic aquí}.
+
+\section{Algoritmo KNN} \label{sec_anexos:knn}
+
+La implementación de la validación cruzada para el algoritmo KNN  se basa en el siguiente código:
+
+\begin{lstlisting}[style=pythonstyle]
+inicio = time.time()
+cv = KFold(n_splits = 5, shuffle = True, random_state = semilla )
+
+for i, weights in enumerate(['uniform', 'distance']):
+    total_scores = []
+    for n_neighbors in range(1,30):
+        fold_accuracy = []
+        knn = neighbors.KNeighborsClassifier( n_neighbors, weights = weights, n_jobs = -1 )
+        for train_fold, test_fold in cv.split( train_acp ):
+            # División train test aleatoria
+            f_train = train_acp.loc[ train_fold ]
+            f_test = train_acp.loc[ test_fold ]
+            # entrenamiento y ejecución del modelo
+            knn.fit( X = f_train.drop(['TARGET'], axis=1),
+                     y = f_train['TARGET'])
+            y_pred = knn.predict(X = f_test.drop(['TARGET'], axis = 1))
+            # evaluación del modelo
+            acc = accuracy_score(f_test['TARGET'], y_pred)
+            fold_accuracy.append(acc)
+        total_scores.append(sum(fold_accuracy)/len(fold_accuracy))
+
+    plt.plot(range(1,len(total_scores)+1), total_scores, marker='o', label=weights )
+    print ('Max Value ' +  weights + " : " +  str(max(total_scores)) +" (" + str(np.argmax(total_scores) + 1) + ")")
+    plt.ylabel('Acc')
+    plt.savefig('KNN.png')
+
+fin = time.time()  
+tm= fin-inicio
+print('Tiempo de ejecución es:',tm//3600,'horas con',tm%3600//60,'minutos y', tm%60,'segundos' )
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_knn_acp.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el KNN con PCA}}}
+\label{fig:matriz_conf_knn_acp}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_knn_bal_acp.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el KNN con balanceo y PCA}}}
+\label{fig:matriz_conf_knn_bal_acp}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_knn_ml.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el KNN y  \textit{variables\_ml}}}}
+\label{fig:matriz_conf_knn_ml}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_knn_bal_ml.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el KNN con balanceo y \textit{variables\_ml}}}}
+\label{fig:matriz_conf_knn_bal_ml}
+\end{figure}
+
+El acceso a los scripts que generaron toda la implementación del algoritmo KNN es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_knn.ipynb}{clic aquí}.
+
+\section{Algoritmo de árboles} \label{sec_anexos:arboles}
+
+La implementación de la validación cruzada para la técnica de árboles simples se basa en el siguiente código:
+
+\begin{lstlisting}[style=pythonstyle]
+inicio = time.time()
+cv = KFold( n_splits = 10, shuffle = True, random_state=semilla) #
+
+total_scores = []
+for i in range(2, 100):
+   model = DecisionTreeClassifier(criterion='gini', max_depth=i, random_state = semilla)
+   fold_accuracy = []
+   for train_fold, test_fold in cv.split( train ):
+      # División train test aleatoria
+      f_train = train.loc[train_fold]
+      f_test = train.loc[test_fold]
+      # entrenamiento y ejecución del modelo
+      model.fit( X = f_train.drop(['TARGET'], axis=1), y = f_train['TARGET'])
+      y_pred = model.predict(X = f_test.drop(['TARGET'], axis = 1))
+      # evaluación del modelo
+      acc = accuracy_score(f_test['TARGET'], y_pred)
+      fold_accuracy.append(acc)
+   total_scores.append(sum(fold_accuracy)/len(fold_accuracy))
+
+max_depth = np.argmax(total_scores) + 2 # +2 porque range(2, 50) y argmax
+# devuelve el índice del vector cuyo valor es máximo, y ese vector está indexado comenzando en 0
+print ('Max Depth Value ' + str(max(total_scores)) +" (" + str(max_depth) + ")")
+
+plt.plot(range(1,len(total_scores)+1), total_scores, marker='o')
+plt.ylabel('ACC')
+
+plt.show()
+
+fin = time.time()  
+tm= fin-inicio
+print('Tiempo de ejecución es:',tm//3600,'horas con',tm%3600//60,'minutos y', tm%60,'segundos' )
+\end{lstlisting}
+
+El tiempo de ejecución fue de 5 horas
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_arbol_simple.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo del arbol simple}}}
+\label{fig:confusion_matrix_algoritmo_arbol_simple}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_arbol_simple_bal.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo del arbol simple balanceado}}}
+\label{fig:confusion_matrix_algoritmo_arbol_simple_bal}
+\end{figure}
+
+El acceso a los scripts que generaron toda la implementación de los árboles simples es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_arboles.ipynb}{clic aquí}.
+
+\section{Conjunto de modelos} \label{sec_anexos:conjunto_modelos}
+
+\subsection{RandomForestClassifier}  \label{sec_anexos:conjunto_modelos_RandomForestClassifier}
+
+Búsqueda de hiperparámetros por \textit{RandomizedSearchCV}
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_r_rfc = { "n_estimators":[4,8,16,32,64,128],
+                     "criterion": ['gini', 'entropy', 'log_loss'],
+                     "max_depth": [16, 12,8,4, 2, None], # Maximum number of levels in tree,
+                     "min_samples_split": sp_randint(2, 50), #  Minimum number of samples required to split a node
+                     "min_samples_leaf": sp_randint(1, 50), # Minimum number of samples required at each leaf node
+                     "max_features": ['sqrt', 'log2', None], # Number of features to consider at every split (1.0 is the old 'auto')
+                     "bootstrap": [True, False], # Method of selecting samples for training each tree
+                     "class_weight":['balanced', 'balanced_subsample']
+                     }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+RandomForestClassifier(class_weight='balanced_subsample', criterion='log_loss',
+                       max_features=None, min_samples_leaf=8,
+                       min_samples_split=24, n_estimators=32, n_jobs=-1,
+                       random_state=8)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_RandomForestClassifier_random_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo con RandomizedSearch}}}
+\label{fig:confusion_matrix_algoritmo_RandomForestClassifier_random_search}
+\end{figure}
+
+Búsqueda de hiperparámetros por \textit{GridSearchCV}
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_g_rfc = { "n_estimators":[28,30,32,34,36],
+                    "criterion": ['log_loss'],
+                    "max_depth": [None], 
+                    "min_samples_split": [20,22,24,26,28], 
+                    "min_samples_leaf": [4,6,8,10,12], 
+                    "max_features": [None], 
+                    "bootstrap": [True], 
+                    "class_weight":['balanced_subsample']
+                   }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+RandomForestClassifier(class_weight='balanced_subsample', criterion='log_loss',
+                       max_features=None, min_samples_leaf=4,
+                       min_samples_split=20, n_estimators=30, n_jobs=-1,
+                       random_state=8)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_RandomForestClassifier_grid_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo con GridSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_RandomForestClassifier_grid_search}
+\end{figure}
+
+\subsection{AdaBoostClassifier}  \label{sec_anexos:conjunto_modelos_AdaBoostClassifier}
+
+Búsqueda de hiperparámetros por \textit{RandomizedSearchCV}
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_r_booc = { "n_estimators":[4,8,16,32,64,128],
+                     "learning_rate" :[0.01,0.05,0.1],
+                     "algorithm" : ['SAMME', 'SAMME.R']
+                     }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+AdaBoostClassifier(algorithm='SAMME',
+                   estimator=DecisionTreeClassifier(random_state=8),
+                   learning_rate=0.01, n_estimators=4, random_state=8)
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_AdaBoostClassifier_random_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo con RandomizedSearch}}}
+\label{fig:confusion_matrix_algoritmo_AdaBoostClassifier_random_search}
+\end{figure}
+
+Búsqueda de hiperparámetros por \textit{GridSearchCV}
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_g_booc = { "n_estimators":[1,2,3,4,5,6,7],
+                     "learning_rate" :[0.005, 0.007, 0.008, 0.01, 0.03, 0.04],
+                     "algorithm" : ['SAMME']
+                     }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+AdaBoostClassifier(algorithm='SAMME',
+                   estimator=DecisionTreeClassifier(random_state=8),
+                   learning_rate=0.005, n_estimators=1, random_state=8)
+\end{lstlisting}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_GradientBoostingClassifier_random_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algortimo con GridSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_AdaBoostClassifier_grid_search}
+\end{figure}
+
+\subsection{GradientBoostingClassifier}  \label{sec_anexos:conjunto_modelos_GradientBoostingClassifier}
+
+Búsqueda de hiperparámetros por RandomizedSearchCV
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_r_graboo = { "n_estimators":[4,8,16,32,64,128],
+                        "loss" : ['log_loss', 'exponential'],
+                        "learning_rate" : [0.01,0.05,0.1],
+                        "criterion": ['friedman_mse', 'squared_error'],
+                        "min_samples_split": sp_randint(2, 50),
+                        "min_samples_leaf": sp_randint(1, 50),
+                        "max_depth": [16, 12,8,4, 2, None], 
+                        "max_features": ['sqrt', 'log2', None]
+                     }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+GradientBoostingClassifier(criterion='squared_error', learning_rate=0.05,
+                           loss='exponential', max_depth=None,
+                           min_samples_leaf=19, min_samples_split=16,
+                           n_estimators=128, random_state=8)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_GradientBoostingClassifier_random_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para Gradient Boosting con Random Search}}}
+\label{fig:confusion_matrix_algoritmo_GradientBoostingClassifier_random_search}
+\end{figure}
+
+El acceso a los scripts que generaron toda la implementación del conjunto de modelos es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_arboles.ipynb}{clic aquí}.
+
+\section{XGBClassifier}  \label{sec_anexos:conjunto_modelos_XGBClassifier}
+
+Búsqueda de hiperparámetros por RandomizedSearchCV
+
+\begin{lstlisting}[style=pythonstyle]
+param_dis_r_xgb = { 'n_estimators': np.arange(50, 500, 50),  
+                    'learning_rate': [0.01, 0.1, 0.2, 0.3],  
+                    'max_depth': np.arange(3, 15, 1),  
+                    'min_child_weight': np.arange(1, 10, 1),  
+                    'subsample': [0.6, 0.8, 1.0],  
+                    'colsample_bytree': [0.6, 0.8, 1.0],  
+                    'gamma': [0, 0.1, 0.2, 0.3],  
+                    }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=1.0, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='mlogloss',
+              feature_types=None, gamma=0.1, grow_policy=None,
+              importance_type=None, interaction_constraints=None,
+              learning_rate=0.1, max_bin=None, max_cat_threshold=None,
+              max_cat_to_onehot=None, max_delta_step=None, max_depth=11,
+              max_leaves=None, min_child_weight=1, missing=nan,
+              monotone_constraints=None, multi_strategy=None, n_estimators=450,
+              n_jobs=None, num_parallel_tree=None, random_state=8, ...)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_XGBClassifier_random_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algoritmo con RandomSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_XGBClassifier_random_search}
+\end{figure}
+
+Búsqueda de hiperparámetros por GridSearchCV
+
+\begin{lstlisting}[style=pythonstyle]
+param_dis_g_xgb = { 'n_estimators': np.arange(400, 450, 500),  
+                    'learning_rate': [0.05, 0.1, 0.2 ],  
+                    'max_depth': np.arange(3, 15, 1),  
+                    'min_child_weight': np.arange(1, 10, 1),  
+                    'subsample': [0.6, 0.8, 1.0],  
+                    'colsample_bytree': [ 1.0, 2.0, 3.0],  
+                    'gamma': [0.05, 0.1, 0.15],  
+                    }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=1.0, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='mlogloss',
+              feature_types=None, gamma=0.15, grow_policy=None,
+              importance_type=None, interaction_constraints=None,
+              learning_rate=0.1, max_bin=None, max_cat_threshold=None,
+              max_cat_to_onehot=None, max_delta_step=None, max_depth=12,
+              max_leaves=None, min_child_weight=1, missing=nan,
+              monotone_constraints=None, multi_strategy=None, n_estimators=460,
+              n_jobs=None, num_parallel_tree=None, random_state=8, ...)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_XGBClassifier_grid_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algoritmo con GridSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_XGBClassifier_grid_search}
+\end{figure}
+
+El acceso a los scripts que generaron toda la implementación de XGBoost para clasificación es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_otras_tecnicas.ipynb}{clic aquí}.
+
+\section{Redes neuronales}  \label{sec_anexos:conjunto_modelos_redes}
+
+Búsqueda de hiperparámetros por GridSearchCV
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_red = {  'hidden_layer_sizes': [(100,), (150,),(200,),(250,)],
+                    'activation': ['relu', 'logistic', 'identify', 'tanh'],
+                    'alpha': [0.0001, 0.001, 0.01]
+                    }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+MLPClassifier(hidden_layer_sizes=(200,), max_iter=100, random_state=8)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_redes_grid_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algoritmo con GridSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_redes_grid_search}
+\end{figure}
+
+Búsqueda de hiperparámetros por GridSearchCV con un balanceo de clases
+
+\begin{lstlisting}[style=pythonstyle]
+param_dist_red = {  'hidden_layer_sizes': [(100,), (150,),(200,),(250,)],
+                    'activation': ['relu', 'logistic', 'identify', 'tanh'],
+                    'alpha': [0.0001, 0.001, 0.01]
+                    }
+\end{lstlisting}
+
+Parámetros resultantes
+
+\begin{lstlisting}[style=pythonstyle]
+MLPClassifier(hidden_layer_sizes=(250,), max_iter=100, random_state=8)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{graficos/confusion_matrix_algoritmo_redes_bal_grid_search.png}
+\caption{\headlinecolor{\underline{Matriz de confusión para el algoritmo balanceado con GridSearchCV}}}
+\label{fig:confusion_matrix_algoritmo_redes_bal_grid_search.png}
+\end{figure}
+
+El acceso a los scripts que generaron toda la implementación de redes neuronales para clasificación es haciendo \href{https://github.com/cristianguatemalwork/VIU_TFM/blob/main/Python/TFM/VIU_ml_otras_tecnicas.ipynb}{clic aquí}.

@@ -1,0 +1,6 @@
+%Contenido------------------------------------------------------------------------------------------
+\tableofcontents	
+\addcontentsline{toc}{chapter}{\listfigurename}
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoffigures
+\listoftables

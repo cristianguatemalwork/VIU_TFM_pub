@@ -1,0 +1,12 @@
+%Agradecimientos------------------------------------------------------------------------------------
+\section*{Agradecimientos}\label{sec:agradecimientos}
+
+Al concluir este trabajo de fin de máster, me invade una alegría indescriptible. Agradezco a Dios por darme la fortaleza y guía para culminar con éxito esta etapa de mi vida.
+
+Es un honor utilizar este espacio para expresar mis más sinceros agradecimientos a todas las personas que, con su apoyo y cariño, hicieron posible este logro.
+
+En primer lugar, quiero expresar mi sincero agradecimiento a mi tutor, Walter Andrés Ortiz Vargas, por su valiosa orientación, su acompañamiento y su disponibilidad a lo largo de este proceso. 
+
+A mi familia, que siempre ha creído en mí y me ha brindado un apoyo incondicional en cada decisión, tanto en los momentos de dificultad como en los de triunfo. Gracias por su amor, comprensión y motivación constantes, sin los cuales no habría llegado hasta aquí.
+
+A mis amigos y compañeros de trabajo, especialmente a Maru, Jimmy y Tayna, por su compañía, ánimo y apoyo en innumerables momentos de esta etapa. Su amistad me ayudó a mantener la motivación necesaria para continuar.

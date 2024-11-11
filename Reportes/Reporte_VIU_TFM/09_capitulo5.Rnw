@@ -1,0 +1,73 @@
+\chapter{Conclusiones y trabajos futuros}\label{cap:concl_trab_fut}
+
+\section{Conclusiones}
+
+Como se manifiesta en las Valuaciones Actuariales para el Seguro de Invalidez, Vejez y Muerte, con fecha de corte al 31 de diciembre de los años 2018 y 2020, realizadas por el Instituto Ecuatoriano de Seguridad Social, es fundamental que se realicen medidas correctivas para que el fondo de pensiones sea sostenible en el corto, mediano y largo plazo. Las principales medidas se relacionan con el incremento del aporte que realizan los actuales afiliados del instituto, que el Estado ecuatoriano cumpla de manera oportuna con sus obligaciones legales y cambiar la base de cálculo y las condiciones de elegibilidad (es decir, cambiar la edad y los años aportados) para que un afiliado pueda solicitar su derecho a jubilación.
+
+La implementación de estas medidas, que técnicamente han demostrado ser las herramientas más eficaces para garantizar la sostenibilidad del Seguro IVM, tienen un costo político elevado de implementación. Es por esta razón que, ningún gobierno hasta la presente fecha ha generado los mecanismos necesarios para elaborar una reforma integral a la Ley de Seguridad Socia (creada en el año 2001), debido a que, cuando estas medidas lleguen a oídos de la sociedad, la consecuencia del impacto social llevaría a generar conmoción interna, que en el peor de los casos derrocaría al gobierno de turno.
+
+La puesta en marcha de estas medidas es necesaria y urgente, caso contrario se agravaría la situación proyectada por las valuaciones actuariales, dando como resultado que el año de reserva cero sea más cercano al pensado. Es por ello que, es el momento oportuno para generar acciones correctivas que sean de impacto mínimo para los afiliados y que la sociedad en generar las pueda aceptar. 
+
+En este sentido, una medida para ayudar a la sostenibilidad del Seguro IVM con impacto mínimo es cambiar la formulación de la base de cálculo descrita en el artículo 13 de la Resolución No. C.D. 100. Un enfoque simple sería que, en vez de utilizar el promedio aritmético se utilice el promedio geométrico. Sin embargo, pese a que se generaron los insumos necesario que demostraron que esta medida ayudaba al fondo de pensiones, la misma fue declarada como inconstitucional por la Corte Constitucional del Ecuador,  en un sentido que infringe el numeral 2 del artículo 11, el numeral 4 del artículo 66 de la Constitución de la República del Ecuador.
+
+Por esta razón, dado que la modificación de los artículos de la Ley de Seguridad Social Ecuatoriana son legalmente complejos, este trabajo de fin de máster tiene como meta promover la sostenibilidad del Seguro IVM mediante la identificación de aportaciones fraudulentas realizadas por los pensionistas durante su vida laboral y generar un modelo que permita combatir este tipo de actividades en los actuales afiliados del IESS.
+
+
+La fase inicial y crucial de la primera parte de este trabajo fue la consolidación de la información de los sistemas transaccionales de historia laboral y pensional del IESS. Este proceso requirió de gran capacidad de cómputo, pues se trabajó con millones de registros. La solución fue trabajar con el lenguaje pl/SQL en un servidor virtual de 64 GB de RAM. 
+
+Seguido a esto se realizó un proceso KDD para crear el conocimiento necesario que permitiera generar una base de datos con la cual implementar las técnicas de aprendizaje no supervisado de clúster jerárquico, K-Means y DBSCAN, para determinar que aportaciones son atípicas o fraudulentas.
+
+La tercera fase es la generación de un dataset con la clasificación de los aportes en fraude o no; y, las características propias de la información pensional. Además se crean más atributos, los cuales tras realizar nuevamente un proceso KDD, generarán el conocimiento necesario para la implementación del aprendizaje supervisado. El aspecto fundamental antes de realizar este aprendizaje, fue la selección de las características más significativas que generalicen el problema planteado, con el fin de combatir la maldición de la dimensionalidad. Para esto se tomaron en cuenta diferentes aspectos, en donde la selección final de los atributos más importantes fue realizada considerando las ventajas de cada uno de ellos.
+
+Tras la implementación de las técnicas de KNN, árboles, conjunto de modelos, Random Forest, Boosting, XGBOOST y redes neuronales, enfocadas en clasificación, para los casos de datos con y sin balanceados o con y sin normalización, realizando la optimización de hiperparámetros por Random Search y Grid Search, el mejor modelo fue XGBClassifier con RandomizedSearchCV. La elección se este modelo fue en base a su capacidad de clasificación, detección de atípicos y evidencia significativa de la no presencia de sobreajuste.
+
+Por otra parte, al analizar el efecto de no considerar los valores atípicos dentro de la base de cálculo de los cinco mejores años de sueldo, se evidencia que con el cálculo de las pensiones corregidas, el fondo de pensiones del IESS tendría un ahorro de aproximadamente el 5\% del total del gasto prestacional en el año 2024. Además que,  la mayor incidencia de los casos de fraude se da en el sector privado para las condiciones de elegibilidad de vejez y en gran parte por los hombres. Es decir, el fraude tiene su punto más fuerte en la jubilación por vejez, en comparación con los otros tipos de pensionistas.
+
+
+Una quinta fase que se llevó a cabo muestra el comportamiento salarial de los actuales afiliados y determina con cierta probabilidad, que más del 56\% de los mismos realizó al menos una aportación fraudulenta. Este valor representa un incremento significativo comparo con el 34\% que ya se evidenció en los pensionistas.
+
+Adicionalmente, es importante eliminar la idea errónea de que las aportaciones fraudulentas se da en los últimos cinco años de la vida laboral del pensionistas. Los datos muestran que son un sinnúmero de aspectos que abarcan los sueldos fraudulentos, debido a que en algunos casos, una única aportación altera todo el comportamiento salarial, en otros casos se daba en un grupo de 12 meses de los mejores años, en otros los aportes fraudulentos se daban entre años, etc. Por tanto, no es fácil detectar un patrón de actividad fraudulenta que abarque todas posibles combinaciones
+
+En base a todo lo expuesto, la detección de aportaciones fraudulentas es una medida correctiva que tiene impacto mínimo, puesto que en el mediano y largo plazo, lo que se busca es  desincentivar que los afiliados realicen estos actos fraudulentos. Así, el primer hito a realizar es impulsar la elaboración de una resolución por parte del Consejo Directivo del IESS, en la que se establezca que, si el comportamiento salarial del afiliado, tras la utilización de XGBClassifier con búsqueda Random Search, se clasifica como fraudulento, entonces autorizar  que la Dirección Nacional de Afiliación y Cobertura del IESS, utilizando  las técnicas de aprendizaje no supervisado descritas en este trabajo, realice la identificación de los posibles aportes que son fraudulentos. Con lo cual, en una etapa posterior, se verifique o ratifique si la clasificación de la aportación es en efecto fraudulenta.
+
+La idea con la cual se puede llevar a cabo esta tarea es solicitando al afiliado que de buena fe de su aportaciones, en donde, si una aportación que previamente se clasificó como atípica, pero existe el respectivo sustento legal que puede deberse a un ascenso laboral, encargo provisional de un puesto de nivel superior o una buena actividad económica, entonces que la misma sea considerada dentro de la base de cálculo de los cinco mejores años. Pero por el contrario, si el aporte es considerado como atípico, pero el afiliado no muestra un evidenciable que justifique ese valor, entonces esa aportación no será considerada dentro de los cinco mejores años de sueldo.
+
+
+%Trabajos futuros-----------------------------------------------------------------------------------
+\section{Trabajos futuros}
+
+El presente Trabajo de Fin de Máster aborda un campo de estudio que posee una amplia gama de expansión, partiendo de diferentes ramas y contextos. Es por ello que, para trabajos futuros, contar con un mayor volumen de datos y herramientas computacionales más avanzadas sería de gran ayuda para obtener resultados más precisos y así poder predecir de forma más clara aquellos afiliados que cometen fraude. Con ello, la detección podría ser realizada en una etapa temprana, facilitando el seguimiento por parte de las diferentes unidades del IESS y permitiendo tomar acciones oportunas para contrarrestar este problema.
+
+Asimismo, a pesar de que este estudio proporciona una estimación general de las pérdidas que la detección de fraudes podría evitar, es posible hacer un análisis más detallado. Dicho análisis podría tomar en cuenta el tiempo y otras variables demográficas-actuariales para evaluar de forma más precisa los beneficios reales que tendría el fondo de pensiones, pues, la matemática actuarial desempeña un papel fundamental al potencializar este análisis con las probabilidades de muerte y el análisis de rentas vitalicias-temporales actuariales. Así como, realizar un análisis más detallado que abarque las edades a la jubilación y la prevalencia del sector en el cual el afiliado trabajo la mayor parte de su vida.
+
+Todo esto ayudaría a determinar de forma más clara tanto las pérdidas que se han tenido como las que se pueden prever. Por otro lado, el análisis del comportamiento fraudulento en el tiempo también es una línea de investigación futura que puede traer consigo conclusiones claves tanto para la comprensión del fraude como para su proyección. Este enfoque nos permitiría entender desde cuándo iniciaron estos comportamientos y qué los impulsó, así como por qué en ciertas generaciones existe un incremento de la incidencia de estos actos y cómo sus efectos se han incrementado con el tiempo. Además, permitiría predecir su evolución, tanto si se toman medidas preventivas como si no, considerando también la utilización de modelos de series temporales. Estos análisis también podrían incluir otro tipo de áreas como economía, ciencias sociales, leyes o ciencias políticas, quienes ayudarían a explicar los diferentes patrones de fraude a lo largo del tiempo.
+
+%Limitaciones---------------------------------------------------------------------------------------
+\section{Limitaciones e inconvenientes}
+
+Entre las principales limitaciones que presentó la realización del presente estudio, se destaca el tiempo de ejecución y costo computacional requerido. Esto debido a que, tanto la preparación de los datos como el entrenamiento de la mayoría de los modelos toman una cantidad significativa de tiempo y su costo computacional es elevado. Aunque algunos modelos como el XGBClassifier con RandomizedSearchCV tienen tiempos de ejecución relativamente bajos (alrededor de 28 minutos), la mayoría de los algoritmos requieren entre 4 a 8 horas para generar resultados. Estos tiempos ocurren cuando los modelos son ejecutados en una computadora cuyas características son las que se muestran en el cuadro \ref{tab:caracteristicas_computacionles}. Sin embargo, en muchos casos no se cuenta con este tipo de características computacionales para llevar a cabo estos estudios, por lo que, el tiempo podría incrementarse significativamente, volviendo el desarrollo de este estudio inviable, más aún si la cantidad de datos crece.
+
+
+\begin{table}[H]
+\centering
+\caption{\headlinecolor{\underline{Características computacionales mínimas requeridas}}}\vspace{-0.3cm}
+\label{tab:caracteristicas_computacionles}
+\fontsize{10}{12}\selectfont{
+\begin{tabular}{|c|c|}
+\hline
+\cellcolor[HTML]{E65013} \textbf{Característica} & \cellcolor[HTML]{E65013} \textbf{Especificación} \\ \hline
+Sistema operativo & Windows 11 Home 64 bits (10.0, compilación 22631) \\ \hline
+Fabricante del sistema & LENOVO \\ \hline
+Modelo del sistema & 82K2 \\ \hline
+BIOS & H3CN30WW(V2.00) \\ \hline
+Procesador & AMD Ryzen 5 5600H with Radeon Graphics (12 CPUs), ~3.3GHz \\ \hline
+Memoria & 32768MB RAM \\ \hline
+Archivo de paginación & 16881MB usados, 56698MB disponibles \\ \hline
+Versión de DirectX & DirectX 12 \\
+\hline
+\end{tabular}
+}
+
+\end{table}
+
+Por otro lado, como la información laboral del IESS migró del sistema Host al sistema de Historia Laboral, no fue posible obtener toda la información de las aportaciones. En algunos casos se debe a que no se digitalizó toda la información y que los expedientes aún son físicos, por lo cual, cuando una persona solicita su pensión, van a registros físicos a verificar las aportaciones. Este hecho se verifica en lo manifestado en la sección \ref{subsec:trans_datos_super}, pues al no contar con toda la información del Host, la información del pensionistas utilizada, antes de la ejecución de los algoritmos de aprendizaje supervisado, se redujo en aproximadamente un 35\%.

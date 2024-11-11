@@ -1,0 +1,351 @@
+\chapter{Estado del arte y marco teórico}\label{cap:estado_arte}
+
+\section{Sistema de Seguridad Social en Ecuador}\label{sistema_seg_soc}
+
+La base normativa de la Seguridad Social en Ecuador está principalmente regulada por la \legalcite{ConsEcu:2008}, específicamente en el artículo 34, donde se establece que:
+
+\begin{displayquote}
+Art. 34 .- El derecho a la seguridad social es un derecho irrenunciable de todas las personas, y será deber y responsabilidad primordial del Estado. La seguridad social se regirá por los principios de solidaridad, obligatoriedad, universalidad, equidad, eficiencia, subsidiaridad, suficiencia, transparencia y participación, para la atención de las necesidades individuales y colectivas. El Estado garantizará y hará efectivo el ejercicio pleno del derecho a la seguridad social, que incluye a las personas que realizan trabajo no remunerado en los hogares, actividades para el auto sustento en el campo, toda forma de trabajo autónomo y a quienes se encuentran en situación de desempleo (p. 19).
+\end{displayquote}
+
+El IESS es la entidad responsable de brindar servicios y prestaciones de Seguridad Social, garantizando la protección de sus asegurados a nivel nacional. Esta institución está encargada de la protección tanto de la población urbana como rural, con o sin relación de dependencia laboral, ante contingencias como enfermedad, maternidad, riesgos laborales, discapacidad, cesantía, desempleo, invalidez, vejez y muerte. Los seguros cubiertos por el IESS incluyen: el Seguro del Sistema de Pensiones, el Seguro General de Salud Individual y Familiar, el Seguro General de Riesgos del Trabajo, el Seguro Social Campesino, así como los Fondos de Terceros y el Seguro de Desempleo \citep{iessboletin2022}. Estos seguros están financiados principalmente por las contribuciones individuales de los afiliados, el aporte patronal obligatorio de los empleadores y la contribución financiera a cargo del Estado. Es necesario destacar que el funcionamiento de la Seguridad Social en el Ecuador se basa en el principio de solidaridad intergeneracional.
+
+El Seguro del Sistema de Pensiones, también conocido como Seguro de Invalidez, Vejez y Muerte (Seguro IVM) cubre las prestaciones de la jubilación ordinaria por vejez, la jubilación especial por discapacidad, la jubilación y subsidio por invalidez, así como las pensiones de montepío y el auxilio de funerales.
+
+Para acceder a estas prestaciones, los individuos deben cumplir determinados requisitos\footnote{Relacionados principalmente con la edad y el número de imposiciones. Una imposición se define como 30 días de trabajo} establecidos en la \legalcite{LeySS}. Una vez cumplidos estos requisitos, el monto de las prestaciones es determinado según lo dispuesto en el artículo 13  de la \legalcite{ResIESS_CD100}. Este artículo establece que la pensión mensual por invalidez o vejez, así como el subsidio transitorio por incapacidad, se calcularán multiplicando la base de cálculo, obtenida de acuerdo al procedimiento descrito en el artículo 2 de la misma resolución, por el coeficiente anual de años cumplidos de imposiciones. La base de cálculo se determina como el salario promedio de los cinco mejores años de la vida laboral del individuo.
+
+\section{Desafíos de Integridad en la Seguridad Social}\label{estafas_ss}
+
+\subsection{Definición legal de estafa en Ecuador}
+
+Según el artículo 186 del \estcite{coip_2014}, se define a la estafa como: 
+
+\begin{displayquote}
+
+La persona que, para obtener un beneficio patrimonial para sí misma o para una tercera persona, mediante la simulación de hechos falsos o la deformación u ocultamiento de hechos verdaderos, induzca a error a otra, con el fin de que realice un acto que perjudique su patrimonio o el de una tercera, será sancionada con pena privativa de libertad de cinco a siete años (p. 31).
+\end{displayquote}
+
+\subsection{Sostenibilidad del sistema de Seguridad Social en Ecuador}
+
+De acuerdo con la \textcite{oit_sostenibilidad_2021}, ``se define la sostenibilidad como la continuación de los beneficios de una intervención de desarrollo después de que esta se haya completado'' (p. 2). En este sentido, la sostenibilidad puede ser analizada desde diferentes contextos. Sin embargo, la misma debe ser siempre examinada en función del proyecto en estudio y su evaluación debe estar centrada en su capacidad para asegurar que los cambios logrados se mantengan, a pesar de que ya no sea posible mantenerlos o expandirlos \citep{oit_sostenibilidad_2021}. 
+
+Debido a las diferentes crisis que han afectado a Ecuador y a numerosos países a lo largo de los años, tales como la pandemia, crisis económicas, energéticas, migratorias, así como el envejecimiento de la población, se han generado varios retos para lograr que los fondos administrados por sus instituciones de seguridad social sean sostenibles, lo cual, ha llevado a los distintos gobiernos a enfrentar desafíos para asegurar que estos sistemas sean viables a largo plazo \citep{oit_pisos_2024}.
+
+Es por esto que, distintas organizaciones como la Organización Internacional del Trabajo (OIT) y la Organización de Naciones Unidas (ONU) se han pronunciado con el fin de dar asistencia y fortalecer los sistemas de seguridad social. Sin embargo, la implementación de las diversas propuestas se ve obstaculizada por las dificultades presentes para la modificación de la legislación actual. Es así que, a pesar de las recomendaciones dadas por estos organismos para evitar el déficit actuarial, su adopción resulta inviable pues su implementación puede desembocar tanto en problemas políticos como sociales, por lo que, ninguna autoridad acepta tomar el peso de estas decisiones. De este modo, no se toma ninguna acción frente a los problemas que existen actualmente, lo cual agrava progresivamente la situación de los fondos y hace que el año previo al déficit sea más cercano.
+
+
+\subsection{Impacto y medidas necesarias frente a las estafas en la Seguridad Socia de Ecuador}
+
+La presencia de estafas en la Seguridad Social, ya sea al momento de obtener indebidamente prestaciones o al ejecutar acciones fraudulentas, supone un fenómeno social con graves consecuencias para toda la sociedad, afectando especialmente a ciertos grupos. Estas prácticas no solo conllevan a un deterioro social, sino que también ocasionan un importante desequilibrio en los recursos y gastos del sistema de Seguridad Social, cuyas consecuencias afectarán a una parte importante de la población, tanto actual como futura. Por ello, el estudio para detectar y controlar este tipo de fraudes  mediante la implementación de medidas correctivas es fundamental para garantizar la sostenibilidad y el desarrollo del sistema.
+
+Como se mencionó previamente, el sistema de Seguridad Social ecuatoriano se basa en el principio de solidaridad intergeneracional. Por tanto, la ocurrencia de estafas representa una disminución de los recursos disponibles, impactando negativamente a toda la sociedad. De ahí surge la necesidad primordial de detectar estas prácticas y combatirlas a través de planes estratégicos, con la participación activa de las diferentes áreas del IESS.
+
+\subsection{Estudios previos sobre fraudes en los Sistemas de Seguridad Social}
+
+El campo de investigación referente a los fraudes en la Seguridad Social de Ecuador, cometidos por parte de los afiliados del IESS, está poco desarrollado. En contraste, en otros países, este tema ha sido ampliamente estudiado. Existen diversas investigaciones que analizan los distintos tipos de fraudes, las posibles formas de detección y las medidas a implementar para combatirlos.
+
+\textcite{aibar2012fraude} realiza el estudio de las actividades ilegales en la Seguridad Social de España, centrando su análisis en la omisión del pago de cuotas, la manipulación de las prestaciones indebidas y la creación de empresas ficticias. Enfatiza en las repercusiones de las mismas, como la pérdida de ingresos en la caja única de la Seguridad Social, las inscripciones fraudulentas en el sistema, complicaciones para los trabajadores en el acceso a prestaciones, competencia desleal, entre otras. Para contrarrestar estos problemas, se han implementado diversas medidas, como el fortalecimiento del intercambio y control de la información, análisis del riesgo e identificación de patrones de fraude, embargos preventivos para asegurar el pago de deudas, control de bonificaciones y reducciones indebidas; y, creaciones de planes integrales contra el fraude. Finalmente, se reconoce la necesidad de innovar en medidas y herramienta tecnológicas para enfrentar estos tipos de fraude.
+
+De manera análoga, \textcite{Rodriguez1999} aborda la problemática del fraude relacionada con los incrementos injustificados de las bases de cotización a la seguridad social. Este fenómeno toma lugar cuando los trabajadores incrementan artificialmente sus bases de cotización en los últimos años laborales para recibir una pensión jubilar más alta. Según este estudio, se atribuye que los casos de fraudes más comunes son cometidos por personas que tienen influencia sobre la empresa, como directivos o dueños, ya que tienen mayor facilidad para aumentar su salario.
+
+A pesar de que la detección del fraude es compleja, debido a las diferentes estrategias para eludir normativas antifraude, se han tomado medidas como la limitación de incrementos salariales en los dos años previos a la jubilación que exceden cierto valor, permitir incrementos solo en ascensos o nuevas responsabilidades, y aplicación de códigos civiles y normativas específicas.
+
+La detección de fraudes implementada se da mediante informes de análisis de casos donde el trabajador ha aumentado su base de cotización sin justificación. Se otorga especial atención a trabajadores en posiciones de poder, teniendo en cuenta aumentos salariales desproporcionados y se analizan patrones y presunciones. 
+
+\section{Proceso KDD}\label{sec:proceso_kdd}
+
+El proceso KDD es un procedimiento iterativo enfocado en la obtención de la información más importante extraída de grandes volúmenes de datos, en el cual se necesita la intervención humana para realizar ajustes durante las iteraciones. Por tanto, su tarea es extraer el conocimiento más comprensible y útil de datos complejos de gran tamaño. La presentación de la información obtenida depende de los objetivos de cada proceso, la misma puede darse en forma de modelos predictivos, descripciones, entre otros. 
+
+Las etapas de este procedimiento son, en primer lugar, la selección, preparación y transformación de los datos. En esta fase se elige un conjunto relevante de la información proporcionada, se la limpia y prepara mediante procesos de la eliminación de ruido o tratamiento de datos faltantes, y posteriormente, los datos son convertidos al formato de trabajo deseado. Luego, se lleva a cabo la aplicación de algoritmos de detección de patrones sobre los mismos, es decir, se aplican técnicas de minería de datos. Finalmente, se evalúan e interpretan los resultados.
+
+La importancia de este proceso radica en que permite la automatización del análisis, es capaz de trabajar con grandes cantidades de datos, mejora la toma de decisiones mediante la información extraída y es aplicable en todos los campos requeridos (\textit{Veáse } \textit{Fayyad, Piatetsky-Shapiro y Smyth}, \citaanio{fayyad1996kdd}). 
+
+
+\section{Machine Learning}\label{sec:machine_learning}
+
+El Machine Learning o Aprendizaje Automático comprende un conjunto de algoritmos y modelos computacionales evolutivos, los cuales se han diseñado con el fin de reproducir la inteligencia humana aprendiendo y mejorando su rendimiento, basándose en los datos del entorno sin la intervención humana o realizando tareas explícitamente programadas. Esto se logra analizando diferentes patrones y relaciones en los datos, a partir de los cuales se generan resultados \citep{ElNaqa2015}.
+
+Este tipo de modelos se utilizan principalmente en problemas que requieren ajustes complejos o un gran número de reglas, debido a que estas técnicas simplifican el código y mejoran el rendimiento. Son eficaces para abordar problemas complejos, donde las técnicas tradicionales no obtienen buenas soluciones, así como en entornos dinámicos, donde su capacidad para reentrenarse fácilmente con nuevos datos permite mantener el modelo actualizado. Además, son útiles en la obtención de información de problemas complejos y grandes volúmenes de datos \citep{geron2023hands}. 
+
+\subsection{Algoritmos no supervisados}\label{sec:no_supervisados}
+
+Los algoritmos no supervisados son un enfoque del Aprendizaje Automático, cuyo objetivo es detectar patrones en datos que no tienen estructura o etiqueta. Por lo que, el modelo es provisto únicamente de los datos de entrada, pero no de los resultados asociados a la salida. Por la naturaleza de los datos, no se necesita de supervisión humana, ya que el mismo modelo identifica y analiza los datos. (Alloghani, Al-Jumeily, Mustafina, Hussain y Al-Jaaf, \citaanio{alloghani2020systematic}).
+
+Varios problemas del entorno cuentan con datos que no están etiquetados y etiquetarlos conlleva un proceso que consume una gran cantidad de tiempo y requiere de la intervención humana. Por lo tanto, la importancia de estos algoritmos radica en que los mismos permiten automatizar el proceso de codificación, y de esta forma, ayudan a la investigación de datos no procesados o desconocidos. Por su naturaleza, estos modelos son útiles para trabajar con una gran cantidad de datos y detectar patrones (Naeem, Ali, Anam y Ahmed, \citaanio{naeem2023unsupervised}).
+
+
+\subsubsection{Clustering jerárquico aglomerativo}\label{sec:cluster_jerarquico}
+
+El algoritmo de clustering jerárquico aglomerativo se basa en el agrupamiento de los elementos de la base de datos en función del orden en el que se van combinando. Para la representación de este proceso se hace uso de árboles o dendogramas, donde el algoritmo inicia con un clúster por cada observación y luego se unen los dos clúster más similares entre si, hasta que queda un único clúster o hasta alcanzar el número de clústeres especificado por el usuario \citep{shetty2021hierarchical}. El proceso se muestra en la figura \ref{fig:cluster_jerarquico}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{graficos/jerarquico.png}
+\caption{\headlinecolor{\underline{Clustering jerárquico}}}
+\label{fig:cluster_jerarquico}
+\vspace{2mm}
+\small \textit{Fuente:} \textit{Clúster jerárquico} \citep{shetty2021hierarchical}.
+\end{figure}
+
+
+\subsubsection{K Means}\label{sec:k_means}
+ 
+El algoritmo K-Means es un proceso de agrupamiento no supervisado, que agrupa o clasifica datos en clústeres tomando en cuenta su similitud. Su objetivo es dividir los datos en k conjuntos definidos, donde k es un parámetro de entrada. La agrupación se dará de forma que la distancia de los puntos a los centroides de cada grupo sea minimizada, garantizando la similaridad de los datos pertenecientes a cada clúster \citep{kanagala2016comparative}.
+
+El funcionamiento de este algoritmo se indica en la figura \ref{fig:kmeans} y sigue los siguientes pasos: en primer lugar, se seleccionan arbitrariamente k elementos de la base de datos como las medias o centroides iniciales de los clústeres. Luego, se calcula la distancia de cada elemento hacia los distintos centroides y se asignan al clúster más cercano. Posteriormente, se vuelve a calcular el centro de cada clúster como la media de los elementos que pertenecen al mismo. Finalmente, se repiten los pasos anteriores hasta que no exista cambio en los elementos que forman parte de cada conjunto \citep{kanagala2016comparative}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{graficos/kmeans.png}
+\caption{\headlinecolor{\underline{Algoritmo K-Means}}}
+\label{fig:kmeans}
+\vspace{2mm}
+\small \textit{Fuente:} Resultados obtenidos con la aplicación del algoritmo K-means \citep{towardsdatascience_kmeans}.
+\end{figure}
+
+La eficacia de este algoritmo está condicionada a la elección inicial de los centroides, por lo que, en ciertos casos los resultados no son los esperados. Por este motivo, una mejora sustancial a este algoritmo es la utilización de k-means++. La diferencia al utilizar  k-means++ radica principalmente en que la elección de los centroides utiliza una distribución de probabilidad proporcional a la distancia. Esto quiere decir que, cuanta más distancia exista entre un (los) centroide(s) con el resto de los elementos, más probabilidad tiene ese elemento de ser elegido.
+
+\subsubsection{DBSCAN}\label{sec:dbscan}
+
+DBSCAN es un algoritmo de agrupamiento basado en densidad que permite identificar las regiones de alta concentración de puntos, las cuales están separadas entre sí por áreas de baja concentración. En este algoritmo, los puntos se clasifican en tres tipos: punto core (central), aquel que tiene más del mínimo de puntos (MinPts) especificado por el usuario dentro de un radio (Eps) de igual forma especificado por el usuario; punto border (frontera), que son los puntos que dentro del radio Eps tienen menos puntos que MinPts pero tienen un punto core 
+en su vecindad; y puntos de ruido, que son aquellos que no son core ni border.
+
+El algoritmo, en primer lugar, identifica de qué tipo es cada punto y se eliminan los puntos de ruido. Luego, se establece un borde entre los puntos cercanos unos a otros y se convierte cada grupo de puntos centrales que están conectados en grupos separados. Finalmente, los puntos frontera son asignados a los grupos de los puntos centrales que tengan asociados (\textit{Véase} \textit{Kanagala y Jaya Rama Krishnaiah}, \citaanio{kanagala2016comparative}). La ilustración de este proceso se indica en la figura \ref{fig:dbscan}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{graficos/dbscan.png}
+\caption{\headlinecolor{\underline{Algoritmo DBSCAN}}}
+\label{fig:dbscan}
+\vspace{2mm}
+\small \textit{Fuente:} \textit{Un ejemplo ilustrativo del algoritmo DBSCAN, con MinPts=3. El radio de los círculos representa la distancia Eps entre cada punto. Los puntos rojos son puntos centrales porque tienen al menos MinPts vecinos entre sí. Los puntos amarillos son puntos frontera porque tienen menos de MinPts puntos en sus vecindarios, y dentro de los mismos tienen un punto central. El punto azul se considera ruido porque no está dentro de la distancia Eps de ningún otro punto} (Aribido, AlRegib y Alaudah, \citaanio{aribido2021self}).
+\end{figure}
+
+
+\subsection{Algoritmos supervisados}\label{sec:supervisados}
+
+Los algoritmos supervisados son técnicas del Aprendizaje Automático usados cuando el conjunto de datos se encuentra etiquetado, es decir, existe una preclasificación. Los datos son procesados y el algoritmo corrige sus errores iterativamente hasta que alcanza el nivel de precisión requerido \citep{unnoba2020tratamiento}. 
+
+De esta forma, el modelo va a ser entrenado con un conjunto de datos con resultados conocidos, donde la respuesta correcta es su etiqueta asociada, A partir de estos datos, el modelo aprende realizando ajustes en sus parámetros. Posteriormente, realizará predicciones de las etiquetas sobre nuevas observaciones \citep{moreno2023manual}. La metodología se ilustra en la figura \ref{fig:supervisados}.
+
+Este tipo de aprendizaje se divide en dos tipos: de regresión y de clasificación.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.70]{graficos/supervisados.png}
+\caption{\headlinecolor{\underline{Algoritmos supervisados}}}
+\label{fig:supervisados}
+\vspace{2mm}
+\small \textit{Fuente:} Descripción genérica del flujo de entrenamiento de un algoritmo supervisado \citep{moreno2023manual}.
+\end{figure}
+
+En línea con el objetivo del presente trabajo de titulación, a continuación se describen los algoritmos de clasificación que se utilizarán.
+
+% \subsubsection{Algoritmos supervisados de clasificación}\label{sec:supervisado_clasificacion}
+%  
+% Este tipo de algoritmos son aquellos que parten con datos etiquetados, donde la variable dependiente es conocida y su tipo es categórica. Una vez entrenado el modelo, se aplica a datos nuevos y permite realizar una predicción de a qué categoría pertenece la información nueva \citep{moreno2023manual}.
+% 
+% \subsubsection{Support Vector Machine}\label{sec:svm}
+% 
+% Es un método de Aprendizaje Supervisado usado para tareas de clasificación, regresión y detección de datos atípicos. Este algoritmo busca el hiperplano óptimo que separe los datos en dos clases, esto se lo realiza maximizando la distancia entre los puntos más cercanos de cada clase. Los puntos que se encuentran en los límites se conocen como vectores de soporte, y el centro del margen representa el hiperplano que realiza la separación óptima \citep{meyer2009svm}.
+
+\subsubsection{K-Nearest Neighbors}\label{sec:knn}
+ 
+El algoritmo K-Nearest Neighbors (KNN) se basa en la clasificación de las observaciones de la base de datos, considerando la categoría que es más frecuente entre sus k vecinos más cercanos, donde k es un parámetro  establecido por el usuario. De esta manera, se etiqueta a cada observación con la clase que predomina en la mayoría de sus vecinos. Se puede dar la misma ponderación a todos los vecinos de la observación. Sin embargo, también existe la posibilidad de dar un peso a cada vecino dependiendo de su distancia a la observación \citep{9314060}.
+
+\subsubsection{Árboles de decisión}\label{sec:arboles}
+
+Este algoritmo clasifica los elementos de estudio planteando una serie de preguntas sobre las características que están asociadas a los elementos. En cada nodo se encuentra una pregunta  y a cada nodo hijo se le asigna una respuesta de la misma. Los árboles se construyen aumentando nodos pregunta de manera incremental, utilizando los elementos de entrenamiento para determinar la elección de preguntas, donde una buena pregunta dividirá a un conjunto de elementos de clases heterogéneas en subconjuntos que tengan etiquetas más homogéneas, formando así grupos con poca variación entre ellos. Existen varias medidas que evalúan el grado de impureza en los conjuntos de elementos, entre las principales se encuentran la entropía y el índice de Gini. Entre las ventajas que ofrece este algoritmo, se destaca la fácil interpretabilidad y la flexibilidad para el manejo de características numéricas y categóricas \citep{kingsford2008decisiontrees}. 
+
+\subsubsection{Agregación de muestreo (Bagging)}\label{sec:bagging}
+
+El Bagging es una técnica usada para mejorar la predicción de los modelos. La técnica extrae muestras bootstrap de los datos y sobre cada una de ellas, aplica un método de predicción y combina los resultados obtenidos de las diferentes muestras. En el caso de clasificación, para obtener el resultado final, se vota de manera simple y así se genera la predicción general \citep{SUTTON2005303}.
+
+
+\subsubsection{Random Forest}\label{sec:random_forest}
+
+El algoritmo Random Forest usa la estrategia de Bagging y genere múltiples conjuntos de entrenamiento que son diferentes entre sí. Cada uno de estos conjuntos genera un árbol de decisión, en el cual se usan características seleccionadas de forma aleatoria. Debido a la gran cantidad de árboles que genera este algoritmo, es una técnica robusta ante la presencia de ruido con una buena capacidad de clasificación. Dependiendo de la información de entrada, cada árbol generará un resultado, y finalmente, a través de la integración de los resultados de todos los árboles se obtendrá el resultado final. 
+Este algoritmo comienza seleccionando aleatoriamente un subconjunto de datos con reemplazo del conjunto de entrenamiento, formando así múltiples conjuntos de entrenamiento. Luego, elige aleatoriamente un grupo de variables, las cuales son utilizadas en la división de los nodos al construir los árboles. Finalmente, se construyen los árboles y el resultado final se obtiene a través de métodos como la votación por mayoría (\textit{Véase} \textit{Moreno y Sanz}, \citaanio{moreno2023manual}).
+
+\subsubsection{Boosting}\label{sec:boosting}
+
+El Boosting es una técnica usada para mejorar la precisión de los modelos, que es similar al Bagging, pero con la diferencia de que las muestras empleadas en cada iteración no se extraen de la población de la misma forma, si no que, los casos que han sido clasificados incorrectamente en pasos anteriores reciben un peso mayor en la siguiente iteración. Así, este es un proceso iterativo que incorpora pesos y no toma un promedio simple para las predicciones \citep{SUTTON2005303}.
+
+\subsubsection{Gradient Boosting}\label{sec:gboosting}
+
+En este algoritmo se ajustan iterativamente nuevos modelos para mejorar la estimación de la variable respuesta. En cada paso se construyen nuevos modelos que estén lo más correlacionados posibles con el gradiente negativo de la función de pérdida, para optimizar la minimización de dicha función. La flexibilidad de estos modelos hace que sean bastante personalizables y permite utilizar una gran variedad de funciones de pérdida para mejorar la precisión \citep{natekin2013gradient}.
+
+\subsubsection{XGBoost}\label{sec:xgboost}
+
+Este algoritmo es una de las implementaciones más eficientes de árboles de decisión, el cual se ha potenciado por el gradiente. Se ha diseñado para optimizar el uso de memoria y maximizar el aprovechamiento del hardware, lo que cual reduce el tiempo de ejecución, incluso se evidencia que su rendimiento es mejor a los modelos de aprendizaje profundo. La idea principal del algoritmo es construir secuencialmente subárboles que parten de un árbol original, tal que, los mismos vayan reduciendo los errores de la función de costo del árbol anterior (Najmeddine, Hakim, Hichem y Yehia, \citaanio{8906396}).
+
+\subsubsection{Redes neuronales}\label{sec:redes_neuronales}
+
+
+Las redes neuronales son modelos computacionales cuyo funcionamiento está basado en conjuntos de capas que están compuestas por nodos o neuronas que se encargan de procesar la información. Están diseñadas para detectar patrones, aprender y adaptarse a datos complejos. Su funcionamiento inicia cuando los nodos reciben entradas, las procesan mediante funciones matemáticas y transmiten los resultados a las neuronas de la siguiente capa, avanzando capa a capa hasta llegar a la capa final. En este proceso se van ajustando los pesos de las conexiones entre los nodos mediante algoritmos de optimización, como el descenso del gradiente, para disminuir el error en las predicciones. Dependiendo de la estructura del dato, existen diferentes tipos de redes que son usadas en múltiples campos gracias a sus ventajas como a su adaptabilidad (\textit{Véase} \textit{LeCun, Bengio y Hinton}, \citaanio{lecun2015}).
+
+\subsection{Técnicas utilizadas}\label{sec:tec_us}
+
+Para optimizar la eficiencia de los modelos en la obtención de resultados es necesario realizar un preprocesamiento a los datos. Este proceso, que se lleva a cabo mediante la aplicación de diversas técnicas, permite  mejorar tanto el rendimiento como la precisión en los resultados de los diferentes modelos. 
+
+A continuación se describen las técnicas utilizadas.
+
+\subsubsection{Balanceo de clases}\label{sec:balanceo}
+
+Las técnicas de balanceo de clases son utilizadas para mejorar el rendimiento de los sistemas de aprendizaje automático en conjuntos de datos desequilibrados. La presencia de clases desbalanceadas favorece a la clase mayoritaria al no incluir los patrones de la clase minoritaria, disminuyendo así la precisión del modelo.
+
+Para el balanceo de clases se usan los métodos oversampling y undersampling. El oversampling se encarga de generar copias de las observaciones de la clase minoritaria, pero puede incrementar el riesgo de sobreajuste. Mientras que, el undersampling elimina ejemplos de la clase mayoritaria, pero puede descartar datos útiles, afectando negativamente la capacidad del modelo para generalizar.
+
+Las principales técnicas utilizadas para llevar a cabo los distintos tipos de balanceo son SMOTE (Synthetic Minority Over-sampling Technique) y SMOTE + ENN (Edited Nearest Neighbors) (\textit{Véase} \textit{Batista, Prati y Monard}, \citaanio{batista2004balancing}).
+
+\begin{itemize}
+\item SMOTE es un método de oversampling que genera nuevos ejemplos sintéticos de la clase minoritaria interpolando con las instancias existentes, lo que reduce el sobreajuste en modelos de clasificación. Esto permite que las fronteras de decisión de la clase minoritaria vayan más adentro del espacio de la clase mayoritaria, lo cual mejora el rendimiento del modelo.
+\item SMOTE + ENN combina la creación de nuevos ejemplos mediante SMOTE con la eliminación de ejemplos mal clasificados de ambas clases usando ENN, eliminando así el ruido y mejorando la definición de los clústeres de clases. Este enfoque es útil especialmente en casos en los cuales hay pocos ejemplos de la clase minoritaria.
+\end{itemize}
+
+\subsubsection{Normalización}\label{sec:normalizacion}
+
+La normalización es el proceso de ajustar los datos para que estén dentro de un rango específico, como entre 0 y 1 o entre -1 y 1. Este procedimiento es necesario de realizar cuando hay grandes diferencias en los rangos de las distintas características del conjunto de datos. Además, es importante destacar que este proceso tiene un mejor funcionamiento cuando no hay valores atípicos en los datos \citep{Ali2014}.
+
+\subsubsection{Validación Cruzada}\label{sec:val_cruzada}
+
+La validación cruzada es una técnica que se utiliza para evaluar la capacidad de generalización de un modelo, así como su poder predicitivo y de precisión, mediante la división de los datos en conjuntos de entrenamiento y test. Esta técnica ayuda a evitar el sobreajuste y mejora la replicabilidad de los resultados (Koul, Becchio y Cavallo, \citaanio{Koul2018}).
+
+Las principales técnicas de validación cruzada son las siguientes:
+
+\begin{enumerate}
+\item Holdout: Divide el conjunto de datos una vez, entrenando en una parte y probando en la otra. Es simple, pero puede tener alta varianza.
+\item  k-Fold: Divide el conjunto de datos en k partes o folds y el modelo se entrena en k-1 partes y se prueba en la parte restante. Se repitiendo el proceso k veces y se promediando los resultados. Esto reduce la varianza y proporciona una evaluación confiable del modelo.
+\item Leave-One-Out Cross-Validation (LOOCV): Es un tipo de la técnica k-Fold donde k es el número total de observaciones. Cada observación se deja fuera una vez y el modelo es entrenado con el resto de las observaciones. Una desventaja del mismo es que puede ser computacionalmente costoso.
+\end{enumerate}
+
+De lo anterior, la técnica que se considerará en el presente trabajo es k-Fold.
+
+\subsubsection{Método del Codo}\label{sec:codo}
+
+El método del codo es una técnica usada para determinar el número de clúster en los algoritmos de agrupamiento, sobre todo en K-means. La técnica grafica la suma de lo errores cuadrados dentro de los clúster dependiendo el número de clúster elegidos, k. Con el aumento de k, este error disminuye, pero después de cierto punto la mejora se ve reducida y forma una curva semejante a un codo. Este codo marca el número óptimo de clúster, ya que a partir de este punto el resultado no mejora significativamente \citep{yuan2019kvalue}.
+
+\subsubsection{Método de la Silueta}\label{sec:silueta}
+
+La técnica de la silueta es usada para evaluar la calidad de los clústeres que se forman mediante algún algoritmo de agrupamiento y representa una herramienta visual para el análisis. Es ampliamente usada para determinar el número óptimo de clústeres que debe tener el agrupamiento de ciertos datos, ya que evalúa la calidad de las agrupaciones cuando la cantidad de clústeres va cambiando. De forma gráfica, si la silueta va aumentando representa un agrupamiento de mejor calidad, pero también se debe tener en cuenta que la silueta suele estabilizarse y a pesar de que se añadan más clústeres no mejora la calidad de la agrupación. Entre sus ventajas se encuentran su flexibilidad, ya que puede ser aplicada a varios algoritmos de agrupamiento, su utilidad para decidir el número de clústeres a elegir y su fácil entendimiento e interpretación \citep{ROUSSEEUW198753}.
+
+\subsubsection{Análisis de componentes principales}\label{sec:acp}
+
+El Análisis de Componentes Principales (PCA) es una técnica usada para la reducción de la dimensionalidad de las variables en un conjunto de datos, manteniendo la mayor cantidad de varianza posible. Se proyectan los datos originales en un espacio de menor dimensión tomando en cuenta la minimización de la distancia entre los puntos iniciales y los proyectados \citep{wiskott2009pca}.
+
+El PCA, en primer lugar, determina las direcciones de mayor varianza de los datos a través de una matriz de covarianza. Posteriormente, diagonaliza la matriz encontrando sus valores propios. De esta forma, se proyectan los datos en las nuevas dimensiones disminuyen así la dimensionalidad y preservando la mayor parte de información de los datos originales \citep{wiskott2009pca}.
+
+Sin embargo, antes de la utilización del PCA es necesario, como se menciona en \citet{tesis_guatemal_epn}, ``verificar si la correlación entre las variables analizadas es lo suficientemente grande como para poder justificar la factorización de la matriz de coeficientes de correlación'' (p. 90). Esto se logra mediante el Test de Esfericidad de Bartlett y el Índice Kaiser-Meyer-Olkin (KMO). 
+
+
+\subsubsection{Optimización de Hiperparámetros}\label{sec:hiperparametros}
+
+Como mencionan \textcite{opthip}, la optimización de hiperparámetros es un proceso fundamental debido a su importancia para mejorar el rendimiento de los algoritmos de aprendizaje automáticos, ya que con él se controlan los aspectos importantes de un modelo como la tasa de aprendizaje, parámetros de regularización, entre otros. Las diferentes elecciones de hiperparámetros llevan a rendimientos variables, por lo que, encontrar una buena configuración de los mismos es necesaria para mejorar la precisión del modelo. Con este propósito, se tienen dos estrategias de búsqueda:
+
+\begin{itemize}
+
+\item Random Search: Este método selecciona aleatoriamente valores de hiperparámetros dentro de un rango específico, sin probar todas las combinaciones, ya que realiza selecciones aleatorias independientes de los valores de los hiperparámetros. Por tanto, este modelo permite evaluar combinaciones potencialmente prometedoras en una cantidad de tiempo menor.
+
+\item Grid Search: Esta estrategia busca optimizar los hiperparámetros en un espacio discreto determinado. Se seleccionan conjuntos de valores para cada parámetro, y posteriormente, se prueban todas las combinaciones posibles. Una desventaja de este método es que, al combinar todas las posibilidades, se vuelve computacionalmente ineficiente, sobre todo en espacios de alta dimensionalidad.
+
+\end{itemize}
+
+
+\subsection{Validación de resultados en modelos de clasificación}\label{sec:validacion}
+
+Una de las herramientas más comunes para evaluar el rendimiento de un modelo de clasificación es la matriz de confusión. La misma tiene como objetivo medir el funcionamiento del algoritmo, comparando los valores reales con los resultados obtenidos. Los resultados pueden formar parte de cuatro categorías:
+
+\begin{itemize}
+\item Verdaderos positivos (VP): Casos donde el modelo predice una clase positiva correctamente.
+\item Falsos Positivos (FP): Casos donde el modelo predice incorrectamente una clase positiva.
+\item Verdaderos Negativos (VN): Casos en los cuales el modelo predice correctamente una clase negativa.
+\item Falsos Negativos (FN): Casos donde el modelo predice una clase negativa de forma incorrecta.
+\end{itemize}
+
+A partir de esta estructura se pueden calcular diversas métricas que describen la capacidad predictiva del modelo. Entre las mismas se encuentran:
+
+\begin{itemize}
+\item Sensibilidad: Mide cuan bien un modelo identifica las instancias positivas, es decir, mide cuántas observaciones positivas se identificaron correctamente.
+
+\begin{equation}
+\text{Sensibilidad} = \frac{VP}{VP+FN}
+\end{equation}
+
+\item Especificidad: Mide cuan bien un modelo puede identificar las clases negativas, es decir, se identifican de forma adecuada los casos que son realmente negativos.
+
+\begin{equation} 
+\text{Especificidad} = \frac{VN}{VN + FP}
+\end{equation}
+
+\item Precisión: Identifica los casos clasificados correctamente como positivos, tomando en cuenta todos los casos que fueron clasificados como positivos.
+
+\begin{equation}
+\text{Precisión} = \frac{VP}{VP+FP}
+\end{equation}
+
+\item Exactitud o accuracy: Corresponde a todos los casos que se clasificaron de forma correcta, es decir, aquellos casos tanto positivos como negativos que fueron clasificados correctamente.
+
+\begin{equation} 
+\text{Exactitud} = \frac{VP+VN}{Total}
+\end{equation}
+
+\end{itemize}
+
+Una parte fundamental en la clasificación de instancias es la selección de los umbrales de decisión. Generalmente, en los modelos de clasificación binaria se asigna una probabilidad a cada observación de pertenecer a determinada clase, por lo que, el umbral de decisión representa el valor por encima del cual el modelo asignará una instancia a la clase positiva. El umbral predeterminado suele ser de 0,5, pero puede verse modificado según las necesidades del modelo. Si se reduce este valor, la sensibilidad aumentará, pero disminuirá la especificidad. Mientas que, si se incrementa el valor, la especificidad aumentará, pero disminuirá la sensibilidad (\textit{Véase} \textit{Fawcett}, \citaanio{FAWCETT2006861}).
+
+\section{Trabajos previos}\label{sec:trabajos_previos}
+ 
+La investigación previa relacionada con la detección de fraude en el ámbito de la seguridad social, tanto en Ecuador como en otros países, es limitada. No obstante, el uso del Machine Learning en la detección de fraudes en otros campos es amplio, especialmente en el fraude con tarjetas de crédito, donde numerosos estudios han analizado tanto las consecuencias como las medidas para enfrentar estos delitos.
+
+Awoyemi, Adetunmbi y Oluwadare (\citaanio{8123782}) abordan la  detección de fraude en las transacciones de tarjetas de crédito. En este estudio se comparan los algoritmos KNN, Naive Bayes y Regresión Logística aplicados en datos altamente desequilibrados, donde solo el 0.172\% de las transacciones eran fraudulentas. Para mejorar la detección y reducir los falsos negativos, se aplicaron técnicas de submuestreo, sobremuestreo y balanceo híbrido. El método híbrido fue el más eficaz, logrando un equilibrio entre las clases y conservando los patrones valiosos. El mejor desempeño se obtuvo con el algoritmo KNN bajo una proporción 34:66 entre transacciones fraudulentas y no fraudulentas, alcanzando una precisión de 1, sensibilidad de 0.9375 y una exactitud de 0.9792.
+
+De manera similar, Varmedja, Karanovic, Sladojevic, Arsenovic y Anderla (\citaanio{8717766}) evaluaron modelos como Random Forest y Naive Bayes para la detección de fraudes en las tarjetas de crédito. En este caso de estudio se utilizó el sobremuestreo para mantener la información de la clase mayoritaria y se enfatiza en el uso de la técnica SMOTE para crear ejemplos sintéticos de la clase minoritaria. Se menciona también la importancia de la selección de variables y la división de los datos en una proporción 80:20, con la cual, el modelo Random Forest se destacó por su rendimiento, obteniendo una precisión del 79.21\%, recall de 81.63\% y exactitud de 99.93\%.
+
+Por otro lado, \textcite{perols2011} realiza un análisis de la detección de fraude enfocado a los estados financieros. Al igual que en los estudios anteriores, se realiza una compararon de los distintos algoritmos y se señala que las redes neuronales artificiales  funcionan bien en condiciones de equilibrio, pero su rendimiento disminuye ante un desequilibrio. Las máquinas de soporte vectorial (SVM) han demostrado tener un buen rendimiento con datos desequilibrados, aunque no son las más eficientes cuando existe comparación directa. Por último, los métodos de ensamble sobresalen frente a los otros métodos, pues mejoran su precisión cuando los datos están equilibrados. De igual manera, se hace énfasis en que el rendimiento de los algoritmos puede variar dependiendo de los datos.
+
+Finalmente, Zhang, Tong, Wang y Gao (\citaanio{9103880}) buscan identificar transacciones electrónicas fraudulentas mediante el uso de Xgboost. Este modelo superó a las  SVM, Regresión Logística y Random Forest, alcanzando un AUC-ROC de 0.952 y una precisión del 98.1\%. En ese estudio, SMOTE se utilizó nuevamente para balancear los datos y se destaca la importancia de la ingeniería de selección de características, así como la optimización de hiperparámetros. Xgboost demostró ser particularmente efectivo por su capacidad de manejar grandes volúmenes de características, mejorando así tanto la velocidad de detección como la predicción.
+
+Ahora bien, además de los trabajos enfocados en la detección de fraude es crucial revisar estudios previos sobre las técnicas de identificación de valores atípicos por su importancia en el desarrollo de este trabajo  final de máster. \textcite{flores2018revision} estudian la efectividad de distintos algoritmos para este propósito, donde se concluye que los enfoques híbridos y basados en densidad son los más eficaces cuando los datos no están distribuidos de manera uniforme. Por el contrario, los enfoques basados en distancia resultan útiles en situaciones más simples, pues son especialmente eficientes para conjuntos de datos pequeños y con una distribución uniforme, mientras que, los algoritmos de clustering como el K-Means, presentan inconvenientes debido a su sensibilidad al ruido. De igual forma, \textcite{orellana2020deteccion} complementan estos hallazgos al mencionar que la combinación de los métodos chi-cuadrado, KNN y K-Means, en su conjunto de datos, logró una efectividad de 100\% en la detección de valores atípicos. La efectividad de este enfoque radica en que KNN identificó los puntos alejados de sus vecinos cercanos, mientras que K-Means ayudó a reducir los falsos negativos generados por KNN, verificando si los valores detectados eran realmente atípicos. 
+
+De forma adicional, Wei, Jang-Jaccard, Sabrina y McIntosh (\citaanio{wei2019msd}) manifiestan que la técnica de agrupamiento de K-Means  es utilizada en la detección de atípicos debido a su facilidad de implementación. Entre sus desventajas se encuentra la sensibilidad a datos ruidosos, puesto que, se disminuye la precisión de detectar valores atípicos. No obstante, este algoritmo tiene la ventaja en su forma de operar, al asignar datos a diferentes clústeres basándose en la proximidad a los centroides de los mismos. Esto ayuda a identificar que datos se desvían significativamente de los promedios, tomándolos como posibles valores atípicos. Además, en varios estudios se ha tomado como un proceso fundamental combinarlo con otros algoritmos, venciendo sus desventajas y mejorando la detección. Por otro lado, este método puede ser computacionalmente costoso ante la presencia de una gran cantidad de datos, debido a su sensibilidad y a la necesidad de detectar el número de clústeres. Sin embargo, la paralelización del mismo aumenta la velocidad y mejora su eficiencia.
+
+De igual modo, \textcite{boucher2020outlier} analiza la efectividad de varios algoritmos en la detección de datos atípicos dentro del fraude financiero, evaluando técnicas como DBSCAN, HDBSCAN, métodos estadísticos, Support Vector Machine y Regresión Logística. Se destaca la habilidad de detección de datos atípicos de DBSCAN y HDBSCAN, debido a su capacidad de identificar clústeres con formas arbitrarias y densidades variables, lo que los hace ideales en la detección de fraudes en conjuntos de datos no homogéneos. No obstante, su rendimiento disminuye cuando los datos no se agrupan claramente. 
+
+Asimismo, \textcite{smiti2020outlier} menciona que, a pesar que DBSCAN es sensible a la configuración de sus parámetros, es adecuado para detectar clústeres con formas arbitrarias. Este algoritmo es bastante conocido por su capacidad de manejar el ruido de los datos y su eficacia para agrupar datos dispersos, lo que le permite identificar datos atípicos en áreas de menor densidad.
+
+En cuanto al desempeño del algoritmo de Clustering Jerárquico para la detección de datos atípicos, \textcite{Hodge2004} destacan las ventajas del mismo. En primer lugar, se destaca que este algoritmo permite descubrir la estructura subyacente de los datos, facilitando la detección de puntos que no pertenecen a ninguno de los clústeres identificados. También, a diferencia de otros métodos, este método tiene la ventaja de no necesitar un previo establecimiento del número de clústeres, lo cual es útil para la detección de datos atípicos. Por último, se menciona su gran funcionalidad al permitir crear dendogramas, donde se visualizan las relaciones de jerarquía de los datos. Esto permite identificar visualmente los datos atípicos y analizar cómo difieren de los otros datos.
+
+Finalmente, Rajendra, Jatindra y Sukumar (\citaanio{Pamula2011}) dan una conclusión general acerca de los diversos algoritmos para la detección de atípicos, afirmando que los métodos basados en distancias presentan dificultades cuando se enfrentan a una alta dimensionalidad, mientras que los enfoques basados en densidad son más precisos al identificar atípicos locales significativos, aunque a un mayor costo computacional.
+
+\section{Herramientas tecnológicas}\label{herramientas_tecnnologicas}
+
+Para la implementación de las diversas técnicas y modelos utilizados en este trabajo de fin de máster, se emplearon diversas herramientas tecnológicas que facilitaron tanto la etiquetación de datos como la realización de predicciones. Estos procesos se llevaron a cabo principalmente utilizando el lenguaje de programación Python, junto con sus bibliotecas especializadas.
+
+Asimismo, R fue utilizado para la edición y compilación del documento final. La combinación de estas herramientas tecnológicas optimizó el flujo de trabajo y a su vez mejoró la precisión y la interpretación de los modelos desarrollados.
+
+Toda esta estructura se respaldó utilizando el sistema de control de versiones Git, creando un repositorio en GitHub. En este repositorio se ofrece al lector la posibilidad de examinar con mayor detalle la implementación del proceso KDD, así como la aplicación de los diversos algoritmos y técnicas del aprendizaje supervisado y no supervisado que permitieron alcanzar el objetivo planteado en este trabajo de titulación.
+
+\subsection{Python}
+
+Python es un lenguaje de programación de alto nivel utilizado en diversas áreas del desarrollo de software. Creado por Guido van Rossum a finales de la década de 1980 y lanzado en 1991, se distingue de otros lenguajes por su simplicidad y legibilidad. Su versatilidad, junto con una extensa biblioteca de módulos, lo convierte en una herramienta poderosa para una variedad de aplicaciones. La compatibilidad con múltiples plataformas, su amplia comunidad de soporte y su facilidad de integración son características que han contribuido a que sea uno de los lenguajes de programación más utilizado.
+
+Las principales librerías utilizadas para cumplir con los propósitos del presente trabajo fueron las siguientes:
+
+\begin{itemize}
+
+\item	Pandas: Esta librería es ampliamente reconocida por su eficiencia para la manipulación y análisis de datos. Entre sus características se encuentran la facilidad de lectura y escritura de datos. Además, es compatible con diversas bibliotecas, lo que vuelve a esta librería en una herramienta versátil. 
+
+\item	NumPy: Esta librería es fundamental en el cálculo numérico y en el análisis de datos. Debido a sus funcionalidades permite crear estructuras de datos eficientes, realizar operaciones matemáticas, manipulación de datos y más.
+
+\item Scikit-learn: Esta librería es clave para la construcción de modelos de aprendizaje automático y minería de datos. Ofrece herramientas para la preparación y limpieza de datos, así como métricas para evaluar modelos y validarlos. Scikit-learn es ampliamente usada en la construcción de modelos predictivos gracias a su gran simplicidad y eficiencia. Entre sus principales aplicaciones se incuyen a las tareas de clasificación, regresión, clustering, reducción de dimensionalidad, preprocesamiento de datos, evaluación de modelos, creación de pipelines, entre otros.
+
+\end{itemize}
+
+\subsection{R}
+
+R es un lenguaje de programación y un entorno de software diseñado para el análisis estadístico y la visualización de datos, desarrollado en la década de 1990.  Este lenguaje permite utilizar una amplia gama de funciones, entre las cuales se destaca su capacidad de integración con otros lenguajes como \LaTeX, lo cual, permite la creación de documentos técnicos y académicos, así como la posibilidad de realizar versionamiento y el control de cambios. 
+
+\subsection{Git}
+
+El sistema de control del versiones Git es un software distribuido y de código abierto diseñado para gestionar proyectos de desarrollo de software o cualquier tipo de archivo que requiera un seguimiento de los cambios efectuados en el mismo. El servicio en la nube del sistema de control de versionamiento a utilizar será  Github. En esta plataforma se puede almacenar  tanto el código desarrollado, así como trabajar, colaborar y compartir un proyecto con múltiples colaboradores. El repositorio\footnote{Es el espacio de almacenamiento en la nube donde se guarda y gestiona el código del proyecto junto con su historial de versiones.} creado en github tiene por nombre \textit{VIU\_TFM} y en el mismo se encuentra todo el detalle realizado en este trabajo de fin de máster. 
+

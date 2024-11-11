@@ -1,0 +1,20 @@
+\chapter{Objetivos}\label{cap:obj}
+
+\section{Objetivo general}
+
+\begin{enumerate}
+\item Desarrollar mediante modelos de aprendizaje supervisado la clasificación del comportamiento salarial de los actuales afiliados del IESS en Ecuador.
+\end{enumerate}
+
+
+\section{Objetivos específicos}
+
+\begin{enumerate}
+\item Realizar un proceso KDD para crear un único conjunto de datos.
+\item Implementar los algoritmos de aprendizaje no supervisado de clúster jerárquico, K-Means y DBSCAN, para la detección de aportaciones atípicas.
+\item Seleccionar las variables demográficas y salariales más significativas de los pensionistas mediante el análisis de componentes principales, así como a través de las técnicas no supervisadas de clúster jerárquico y DBSCAN.
+\item Desplegar los algoritmos de aprendizaje supervisado KNN, árboles
+de decisión, conjuntos de modelos, XGBoost y redes neuronales, para clasificar el comportamiento de los pensionistas en fraude o no fraude.
+\item Clasificar el comportamiento salarial de los actuales afiliados del IESS utilizando el modelo de aprendizaje supervisado que haya mostrado los mejores resultados.
+\end{enumerate}
+
